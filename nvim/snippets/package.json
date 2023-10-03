@@ -10,6 +10,10 @@
                 "path": "./go.json"
             },
             {
+                "language": "svelte",
+                "path": "./svelte.json"
+            },
+            {
                 "language": "dart",
                 "path": "./dart.json"
             }

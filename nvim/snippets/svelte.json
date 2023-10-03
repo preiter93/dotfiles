@@ -1,0 +1,136 @@
+{
+    "svelte-page-setup": {
+        "prefix": "setup",
+        "body": [
+            "<script>",
+            "\t${1:// your script goes here}",
+            "</script>",
+            "",
+            "<style>",
+            "\t${2:/* your styles go here */}",
+            "</style>",
+            "",
+            "${3:<!-- markup (zero or more items) goes here -->}"
+        ],
+        "description": "setup a svelte file with script, style and html"
+    },
+    "svelte-style": {
+        "prefix": "style",
+        "body": ["<style>", "\t${1:/* your styles go here */}", "</style>"],
+        "description": "add styles to your svelte file"
+    },
+    "svelte-expression": {
+        "prefix": "expr",
+        "body": ["{${1:expression}}"],
+        "description": "basic expression"
+    },
+    "svelte-expression-html": {
+        "prefix": "expr-html",
+        "body": ["{@html ${1:expression}}"],
+        "description": "html content expression"
+    },
+    "svelte-if-block": {
+        "prefix": "if",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t${2: <!-- content here -->}",
+            "{/if}"
+        ],
+        "description": "if block"
+    },
+    "svelte-if-else-block": {
+        "prefix": "ife",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t${2: <!-- content here -->}",
+            "{:else}",
+            "\t${3: <!-- else content here -->}",
+            "{/if}"
+        ],
+        "description": "if else block"
+    },
+    "svelte-if-else-if-block": {
+        "prefix": "ifeif",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t${2: <!-- content here -->}",
+            "{:else if ${3: otherCondition}}",
+            "\t${4: <!-- else if content here -->}",
+            "{:else}",
+            "\t${5: <!-- else content here -->}",
+            "{/if}"
+        ],
+        "description": "if else if block"
+    },
+    "svelte-each-block": {
+        "prefix": "each",
+        "body": [
+            "{#each ${1:items} as ${2:item}}",
+            "\t${3: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each block"
+    },
+    "svelte-each-else-block": {
+        "prefix": "eachElse",
+        "body": [
+            "{#each ${1:items} as ${2:item}}",
+            "\t${3: <!-- content here -->}",
+            "{:else}",
+            "\t${4: <!-- empty list -->}",
+            "{/each}"
+        ],
+        "description": "each else block"
+    },
+    "svelte-each-index-block": {
+        "prefix": "eachIndex",
+        "body": [
+            "{#each ${1:items} as ${2:item}, ${3:i}}",
+            "\t${4: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each index block"
+    },
+    "svelte-each-key-block": {
+        "prefix": "eachKey",
+        "body": [
+            "{#each ${1:items} as ${2:item}, (${2:item}.${3:key})}",
+            "\t${4: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each index block"
+    },
+    "svelte-each-index-key-block": {
+        "prefix": "eachIndexKey",
+        "body": [
+            "{#each ${1:items} as ${2:item},i (${3:key})}",
+            "\t${4: <!-- content here -->}",
+            "{/each}"
+        ],
+        "description": "each index key block"
+    },
+    "svelte-await-then-block": {
+        "prefix": "await",
+        "body": [
+            "{#await ${1:promise}}",
+            "\t<!-- promise is pending -->",
+            "{:then ${2:value}}",
+            "\t<!-- promise was fulfilled -->",
+            "{/await}"
+        ],
+        "description": "await then block"
+    },
+    "svelte-await-catch-block": {
+        "prefix": "awaitCatch",
+        "body": [
+            "{#await ${1:promise}}",
+            "\t<!-- ${1:promise} is pending -->",
+            "{:then ${value}}",
+            "\t<!-- ${1:promise} was fulfilled -->",
+            "{:catch error}",
+            "\t<!-- ${1:promise} was rejected -->",
+            "{/await}"
+        ],
+        "description": "await catch block"
+    }
+}
