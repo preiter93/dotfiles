@@ -4,12 +4,24 @@ local utils = require('utils')
 
 return {
     'akinsho/flutter-tools.nvim',
-    after = "mason-lspconfig.nvim",                                    -- make sure to load after mason-lspconfig
-    dependencies = { 'nvim-lua/plenary.nvim', 'stevearc/dressing.nvim' -- optional for vim.ui.select
-    },
+    after = "mason-lspconfig.nvim",
+    dependencies = { 'nvim-lua/plenary.nvim', 'stevearc/dressing.nvim' },
     opts = {
         lsp = {
             on_attach = utils.on_attach,
+            -- Disable LSP snippets
+            -- capabilities = {
+            --     textDocument = {
+            --         completion = {
+            --             completionItem = {
+            --                 snippetSupport = true
+            --             }
+            --         }
+            --     }
+            -- }
         },
+        settings = {
+            enableSnippets = false,
+        }
     }
 }
