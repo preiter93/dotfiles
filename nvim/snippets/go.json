@@ -43,10 +43,37 @@
         "prefix": "keyInMap",
         "body": "if val, ok := ${1:myMap}[${2:myKey}]; ok {\n\t$3\n}"
     },
+    "diff in test": {
+        "prefix": "diff",
+        "body": [
+            "if diff := cmp.Diff(tt.${1:want}, ${2:got}); diff != \"\" {",
+            "	t.Errorf(\"${3:response} mismatch (-want, +got): %s\", diff)",
+            "}"
+        ],
+        "description": "Do a diff in a test"
+    },
+    "diff in test with a proto": {
+        "prefix": "diffProto",
+        "body": [
+            "if diff := cmp.Diff(tt.${1:want}, ${2:got}, protocmp.Transform()); diff != \"\" {",
+            "	t.Errorf(\"${3:response} mismatch (-want, +got): %s\", diff)",
+            "}"
+        ],
+        "description": "Do a diff in a test with a proto"
+    },
+    "diff in test with an error": {
+        "prefix": "diffError",
+        "body": [
+            "if diff := cmp.Diff(tt.${1:want}, ${2:got}, cmpopts.EquateErrors()); diff != \"\" {",
+            "	t.Errorf(\"${3:error} mismatch (-want, +got): %s\", diff)",
+            "}"
+        ],
+        "description": "Do a diff in a test with an error"
+    },
     "table driven test": {
         "prefix": "table",
         "body": [
-            "func Test_test(t *testing.T) {",
+            "func Test_${1:Name}(t *testing.T) {",
             "	tests := []struct {",
             "		name    string",
             "		want    string",
@@ -63,18 +90,18 @@
             "	}",
             "	for _, tc := range tests {",
             "		t.Run(tc.name, func(t *testing.T) {",
-            "			resp, err := myFunction()",
+            "			got, err := ${2: MyFunction()}",
             "			if diff := cmp.Diff(tc.wantErr, err, cmpopts.EquateErrors()); diff != \"\" {",
             "				t.Errorf(\"error mismatch (-want, +got):\\n%s\", diff)",
             "			}",
             "			opts := []cmp.Option{cmpopts.IgnoreUnexported(pb.Date{})}",
-            "			if diff := cmp.Diff(tc.want, resp, opts...); diff != \"\" {",
+            "			if diff := cmp.Diff(tc.want, got, opts...); diff != \"\" {",
             "				t.Errorf(\"response mismatch (-want, +got):\\n%s\", diff)",
             "			}",
             "		})",
             "	}",
             "}"
         ],
-        "description": "Create a table-driven test"
+        "description": "Create a basic table-driven test"
     }
 }
