@@ -43,6 +43,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 -- Use '\e' to open the file explorer in the current directory
 vim.keymap.set("n", "<leader>e", ':E<CR>', { desc = 'Open explored' })
 
+-- Use <Tab> and <S-Tab> to indent a selection
+vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
+
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
