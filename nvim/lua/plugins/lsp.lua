@@ -30,7 +30,7 @@ return {
             command = "clippy",
           },
         },
-        -- tsserver = {},
+        tsserver = {},
         svelte = {},
         lua_ls = {
           Lua = {
