@@ -1,8 +1,11 @@
 -- [[ Basic Keymaps ]]
 
+-- Enter command mode
+vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
+
 -- Use CTRL+s to update
-vim.api.nvim_set_keymap('n', '<C-s>', ':update<CR>', { silent = true, noremap = true })
-vim.api.nvim_set_keymap('i', '<C-s>', '<C-C>:update<CR>', { silent = true, noremap = true })
+vim.keymap.set('n', '<C-s>', ':update<CR>', { silent = true, noremap = true })
+vim.keymap.set('i', '<C-s>', '<C-C>:update<CR>', { silent = true, noremap = true })
 
 -- Disable arrow keys
 vim.keymap.set('n', '<Left>', '<Nop>', { silent = true })
