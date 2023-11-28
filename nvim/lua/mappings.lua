@@ -13,6 +13,9 @@ vim.keymap.set('n', '<Right>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<Down>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<Up>', '<Nop>', { silent = true })
 
+-- Yank without the cursor moving to the top of the block
+vim.keymap.set('v', 'y', 'ygv<Esc>', { silent = true })
+
 -- Disable quit on Q
 vim.keymap.set("n", "Q", "<nop>", { silent = true, noremap = true })
 
