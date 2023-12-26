@@ -92,4 +92,8 @@ vim.keymap.set('n', '<leader>hk', function() require('harpoon.ui').nav_file(2) e
 vim.keymap.set('n', '<leader>hl', function() require('harpoon.ui').nav_file(3) end, { desc = '[H]arpoon [3]' })
 
 -- Substitute the word under the cursor
-vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]], { desc = '[R]eplace [W]ord' })
+vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>]], { desc = '[R]eplace [W]ord' })
+
+-- Vim-Test
+vim.keymap.set('n', '<leader>tf', ':TestFile<CR>', { desc = '[T]est [F]ile' })
+vim.keymap.set('n', '<leader>tn', ':TestNearest<CR>', { desc = '[T]est [N]earest' })
