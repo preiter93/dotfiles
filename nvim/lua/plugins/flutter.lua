@@ -9,16 +9,6 @@ return {
     opts = {
         lsp = {
             on_attach = utils.on_attach,
-            -- Disable LSP snippets
-            -- capabilities = {
-            --     textDocument = {
-            --         completion = {
-            --             completionItem = {
-            --                 snippetSupport = true
-            --             }
-            --         }
-            --     }
-            -- }
         },
         settings = {
             enableSnippets = false,

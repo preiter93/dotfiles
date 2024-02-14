@@ -1,5 +1,3 @@
-return { -- Fuzzy Finder (files, lsp, etc)
-  {
-    'ggandor/leap.nvim',
-  },
+return {
+  'ggandor/leap.nvim',
 }
