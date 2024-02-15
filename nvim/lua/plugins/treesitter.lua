@@ -67,18 +67,6 @@ return {
               ['[]'] = '@class.outer',
             },
           },
-          swap = {
-            -- Textobjects currently slows down startup for dart files:
-            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
-            disable = { 'dart' },
-            enable = true,
-            swap_next = {
-              ['<leader>a'] = '@parameter.inner',
-            },
-            swap_previous = {
-              ['<leader>A'] = '@parameter.inner',
-            },
-          },
         },
       })
     end,
