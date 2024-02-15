@@ -1,6 +1,3 @@
--- Source:
--- https://github.com/LazyVim/LazyVim/blob/9264c54ae96d1d56f029ad9b561326c7b991c53b/lua/lazyvim/plugins/treesitter.lua
--- https://www.reddit.com/r/neovim/comments/15chdn3/help_me_understand_this_rtp_lazyvim_trick/
 return {
   {
     -- Highlight, edit, and navigate code
@@ -8,80 +5,82 @@ return {
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    opts = {
-      -- Add languages to be installed here that you want installed for treesitter
-      ensure_installed = {
-        'c',
-        'cpp',
-        'go',
-        'lua',
-        'python',
-        'rust',
-        'typescript',
-        'vim',
-        'dart',
-        'svelte',
-        'javascript',
-        "yaml",
-      },
-      auto_install = false,
-      highlight = { enable = true },
-      indent = { enable = true, disable = { 'python' } },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
-          scope_incremental = '<c-s>',
-          node_decremental = '<M-space>',
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ['aa'] = '@parameter.outer',
-            ['ia'] = '@parameter.inner',
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true,
-          goto_next_start = {
-            [']m'] = '@function.outer',
-            [']]'] = '@class.outer',
-          },
-          goto_next_end = {
-            [']M'] = '@function.outer',
-            [']['] = '@class.outer',
-          },
-          goto_previous_start = {
-            ['[m'] = '@function.outer',
-            ['[['] = '@class.outer',
-          },
-          goto_previous_end = {
-            ['[M'] = '@function.outer',
-            ['[]'] = '@class.outer',
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ['<leader>a'] = '@parameter.inner',
-          },
-          swap_previous = {
-            ['<leader>A'] = '@parameter.inner',
-          },
-        },
-      },
-    },
-    config = function(_, opts)
+    build = ":TSUpdate",
+    config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
+      local configs = require("nvim-treesitter.configs")
+      configs.setup({
+        ensure_installed = {
+          "c",
+          "cpp",
+          "go",
+          "lua",
+          "python",
+          "rust",
+          "typescript",
+          "vim",
+          "dart",
+          "svelte",
+          "javascript",
+          "yaml",
+        },
+        auto_install = false,
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true, disable = { 'python', 'dart' } },
+        textobjects = {
+          select = {
+            -- Textobjects currently slows down startup for dart files:
+            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
+            disable = { 'dart' },
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ['aa'] = '@parameter.outer',
+              ['ia'] = '@parameter.inner',
+              ['af'] = '@function.outer',
+              ['if'] = '@function.inner',
+              ['ac'] = '@class.outer',
+              ['ic'] = '@class.inner',
+            },
+          },
+          move = {
+            -- Textobjects currently slows down startup for dart files:
+            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
+            disable = { 'dart' },
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+              [']m'] = '@function.outer',
+              [']]'] = '@class.outer',
+            },
+            goto_next_end = {
+              [']M'] = '@function.outer',
+              [']['] = '@class.outer',
+            },
+            goto_previous_start = {
+              ['[m'] = '@function.outer',
+              ['[['] = '@class.outer',
+            },
+            goto_previous_end = {
+              ['[M'] = '@function.outer',
+              ['[]'] = '@class.outer',
+            },
+          },
+          swap = {
+            -- Textobjects currently slows down startup for dart files:
+            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
+            disable = { 'dart' },
+            enable = true,
+            swap_next = {
+              ['<leader>a'] = '@parameter.inner',
+            },
+            swap_previous = {
+              ['<leader>A'] = '@parameter.inner',
+            },
+          },
+        },
+      })
     end,
   },
 }
