@@ -84,13 +84,6 @@ vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)', {})
 vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)', {})
 vim.keymap.set({ 'n', 'x', 'o' }, 'gs', '<Plug>(leap-from-window)', {})
 
--- Harpoon
-vim.keymap.set('n', '<leader>ha', require('harpoon.mark').add_file, { desc = '[H]arpoon [A]dd' })
-vim.keymap.set('n', '<leader>hm', require('harpoon.ui').toggle_quick_menu, { desc = '[H]arpoon [M]enu' })
-vim.keymap.set('n', '<leader>hj', function() require('harpoon.ui').nav_file(1) end, { desc = '[H]arpoon [1]' })
-vim.keymap.set('n', '<leader>hk', function() require('harpoon.ui').nav_file(2) end, { desc = '[H]arpoon [2]' })
-vim.keymap.set('n', '<leader>hl', function() require('harpoon.ui').nav_file(3) end, { desc = '[H]arpoon [3]' })
-
 -- Substitute the word under the cursor
 vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>]], { desc = '[R]eplace [W]ord' })
 
