@@ -18,7 +18,7 @@ export PATH="$PATH:$HOME/local/bin"
 export PATH="$PATH:$HOME/local/scripts"
 
 # wireman config
-export WIREMAN_CONFIG="$HOME/.config/wireman/config.json"
+export WIREMAN_CONFIG_DIR="$HOME/.config/wireman/config.toml"
 alias wireman="$HOME/Rust/wireman/target/debug/wireman"
 
 # go path
