@@ -13,6 +13,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
+# Enable vi mode
+set -o vi
+
+# Reverse history search
+bindkey "\C-r" history-incremental-search-backward
+
 # Local scripts
 export PATH="$PATH:$HOME/local/bin"
 export PATH="$PATH:$HOME/local/scripts"
@@ -59,11 +65,3 @@ source ~/local/other/istio-1.19.3/tools/_istioctl
 
 # Git aliases
 alias gitShowLast='git for-each-ref --count=30 --sort=-committerdate refs/heads/'
-alias gpm='git pull origin main'
-alias gcm='git checkout main'
-alias gca='git commit --amend --no-edit && git push -f'
-
-unalias grm
-alias grm='git rebase main'
-unalias gcl
-alias gcl='git checkout -'
