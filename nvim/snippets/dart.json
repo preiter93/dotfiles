@@ -2,13 +2,13 @@
     "Stateless Widget": {
         "prefix": "statelessW",
         "body": [
+            "/// A widget that displays ...",
             "class ${1:name} extends StatelessWidget {",
-            "  const ${1:name}({super.key});\n",
+            "  /// Creates a new [${1:name}] instance.",
+            "  const ${1:name}({Key? key}): super(key: key);\n",
             "  @override",
             "  Widget build(BuildContext context) {",
-            "    return Container(",
-            "      child: ${2:null},",
-            "    );",
+            "    return ${2:Container()};",
             "  }",
             "}"
         ],
@@ -17,17 +17,17 @@
     "Stateful Widget": {
         "prefix": "statefulW",
         "body": [
+            "/// A widget that displays ...",
             "class ${1:name} extends StatefulWidget {",
-            "  ${1:name}({super.key});\n",
+            "  /// Creates a new [${1:name}] instance.",
+            "  const ${1:name}({Key? key}): super(key: key);\n",
             "  @override",
             "  State<${1:WidgetName}> createState() => _${1:WidgetName}State();",
             "}\n",
             "class _${1:index}State extends State<${1:index}> {",
             "  @override",
             "  Widget build(BuildContext context) {",
-            "    return Container(",
-            "       child: ${2:null},",
-            "    );",
+            "    return ${2:Container()};",
             "  }",
             "}"
         ],
@@ -80,9 +80,9 @@
         "description": "Creates a Selector."
     },
     "Test": {
-        "prefix": "f-test",
+        "prefix": "unitTest",
         "body": ["test(", "   '${1:test description}',", "   () {},", ");"],
-        "description": "Create a test function"
+        "description": "Create a unit test function"
     },
     "Test Widgets": {
         "prefix": "widgetTest",
@@ -92,6 +92,6 @@
             "   (WidgetTester tester) async {},",
             ");"
         ],
-        "description": "Create a testWidgets function"
+        "description": "Create a widget test function"
     }
 }

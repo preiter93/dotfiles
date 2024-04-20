@@ -23,6 +23,7 @@ return {
           "svelte",
           "javascript",
           "yaml",
+          "vimdoc",
         },
         auto_install = false,
         sync_install = false,

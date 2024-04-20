@@ -1,7 +1,7 @@
 -- [[ Basic Keymaps ]]
 
 -- Enter command mode
-vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
+-- vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
 
 -- Use CTRL+s to update
 vim.keymap.set('n', '<C-s>', ':update<CR>', { silent = true, noremap = true })
@@ -78,11 +78,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
--- Leap See :h leap-custom-mappings
-vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)', {})
-vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)', {})
-vim.keymap.set({ 'n', 'x', 'o' }, 'gs', '<Plug>(leap-from-window)', {})
 
 -- Substitute the word under the cursor
 vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>]], { desc = '[R]eplace [W]ord' })
