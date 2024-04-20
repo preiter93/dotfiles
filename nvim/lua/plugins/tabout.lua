@@ -6,7 +6,6 @@ return {
     "hrsh7th/nvim-cmp",
   },
   opts = {
-    -- options = {
     tabkey = '<C-t>',
     backwards_tabkey = '',
     act_as_tab = false,

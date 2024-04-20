@@ -4,8 +4,7 @@ local utils = require('utils')
 
 return {
     'akinsho/flutter-tools.nvim',
-    after = "mason-lspconfig.nvim",
-    dependencies = { 'nvim-lua/plenary.nvim', 'stevearc/dressing.nvim' },
+    dependencies = { 'mason-lspconfig.nvim', 'nvim-lua/plenary.nvim', 'stevearc/dressing.nvim' },
     opts = {
         lsp = {
             on_attach = utils.on_attach,
