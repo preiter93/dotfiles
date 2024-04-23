@@ -1,7 +1,7 @@
 local M = {}
 
 -- LSP settings.
---  This function gets run when an LSP connects to a particular buffer.
+-- This function gets run when an LSP connects to a particular buffer.
 function M.on_attach(client, bufnr)
   -- Convenience method to easily define LSP related key mappings.
   local nmap = function(keys, func, desc)
@@ -9,10 +9,7 @@ function M.on_attach(client, bufnr)
       desc = 'LSP: ' .. desc
     end
 
-    vim.keymap.set('n', keys, func, {
-      buffer = bufnr,
-      desc = desc
-    })
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
   -- Rename
@@ -42,7 +39,7 @@ function M.on_attach(client, bufnr)
   -- Show documentation for the element under the cursor
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 
-  -- Rename
+  -- Rename a variable
   nmap("<leader>rn", vim.lsp.buf.rename, '[R]e[n]ame')
 
   -- Restart the LSP server
@@ -51,9 +48,7 @@ function M.on_attach(client, bufnr)
   -- Create a `:Format` command local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
-  end, {
-    desc = 'Format current buffer with LSP'
-  })
+  end, { desc = 'Format current buffer with LSP' })
 
   -- Autoformat when saving
   if client.supports_method("textDocument/formatting") then

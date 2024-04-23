@@ -1,3 +1,6 @@
+-- import the global theme variable
+require('plugins.theme')
+
 return {
   {
     -- Set lualine as statusline
@@ -5,7 +8,7 @@ return {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = Theme,
         component_separators = '|',
         section_separators = '',
       },
