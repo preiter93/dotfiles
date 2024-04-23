@@ -1,28 +1,57 @@
 return {
-    -- Fuzzy Finder (files, lsp, etc)
-    {
-        'nvim-telescope/telescope.nvim',
-        version = '*',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        opts = {
+
+    'nvim-telescope/telescope.nvim',
+    version = '*',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        -- Setup telescope
+        local telescope = require("telescope")
+        telescope.setup({
             defaults = {
+                path_display = { "smart" },
                 mappings = {
                     i = {
                         ['<C-u>'] = false,
                         ['<C-d>'] = false
-                    }
-                }
-            }
-        }
-    },
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-    -- Only load if `make` is available. Make sure you have the system
-    -- requirements installed.
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-        cond = function()
-            return vim.fn.executable 'make' == 1
-        end,
-    }
+                    },
+                },
+            },
+        })
+
+        -- Map `<leader>?` to show recently opened files
+        vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles,
+            { desc = '[?] Find recently opened files' })
+
+        -- Map `<leader><space>` to open Telescope's `buffers` picker
+        vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers,
+            { desc = '[ ] Find existing buffers' })
+
+        -- Map `<leader>sf` to open Telescope's `find_files` picker
+        vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files,
+            { desc = '[S]earch [F]iles' })
+
+        -- Map `<leader>sh` to open Telescope's `help_tags` picker
+        vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags,
+            { desc = '[S]earch [H]elp' })
+
+        -- Map `<leader>sw` to open Telescope's `grep_string` picker
+        vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string,
+            { desc = '[S]earch current [W]ord' })
+
+        -- Map `<leader>sg` to open Telescope's `live_grep` picker
+        vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep,
+            { desc = '[S]earch by [G]rep' })
+
+        -- Map `<leader>sd` to open Telescope's `diagnostics` picker
+        vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics,
+            { desc = '[S]earch [D]iagnostics' })
+
+        -- Map `<leader>sr` to open Telescope's `resume` picker
+        vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume,
+            { desc = '[S]earch [R]esume' })
+
+        -- Map `<leader>sp` to open Telescope's `pickers` picker
+        vim.keymap.set('n', '<leader>sp', require('telescope.builtin').pickers,
+            { desc = '[S]earch [P]ickers' })
+    end
 }
