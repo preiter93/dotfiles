@@ -46,8 +46,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { noremap = true, silent = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
--- Use '\e' to open the file explorer in the current directory
-vim.keymap.set("n", "<leader>e", ':E<CR>', { desc = 'Open explored' })
+-- -- Use '<leader>ex' to open the file explorer in the current directory
+-- vim.keymap.set("n", "<leader>ex", ':E<CR>', { desc = 'Open explorer' })
 
 -- Use <Tab> and <S-Tab> to indent a selection
 vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
