@@ -1,6 +1,8 @@
 return {
   'folke/flash.nvim',
-  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter',
+  },
   config = function()
     -- Setup
     require('flash').setup({
