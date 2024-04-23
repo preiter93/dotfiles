@@ -2,10 +2,11 @@ return {
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    build = ":TSUpdate",
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
       local configs = require("nvim-treesitter.configs")
@@ -25,6 +26,8 @@ return {
           "yaml",
           "vimdoc",
         },
+        modules = {},
+        ignore_install = {},
         auto_install = false,
         sync_install = false,
         highlight = { enable = true },
