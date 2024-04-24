@@ -1,5 +1,5 @@
 -- local theme = require('utils').theme
-Theme = "tokyonight" -- tokyonight | onedark | catppuccin
+Theme = "tokyonight" -- tokyonight | onedark | catppuccin | kanagawa
 
 return {
   Theme == "onedark" and {
@@ -36,4 +36,30 @@ return {
       vim.cmd.colorscheme 'catppuccin'
     end
   } or {},
+
+  Theme == "kanagawa" and {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    config = function()
+      require("kanagawa").setup({
+        theme = "wave",
+        background = {
+          dark = "dragon",
+        },
+        colors = {
+          theme = {
+            wave = {
+              ui = {
+                -- disable number lines background coloring
+                bg_gutter = 'none',
+              },
+            },
+          }
+        },
+      })
+      vim.cmd.colorscheme 'kanagawa-wave'
+    end
+  } or {},
+
+
 }
