@@ -8,8 +8,19 @@ return {
     },
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
-      local configs = require("nvim-treesitter.configs")
-      configs.setup({
+      local treesitter = require("nvim-treesitter.configs")
+      treesitter.setup({
+        modules = {},
+        ignore_install = {},
+        auto_install = false,
+        sync_install = false,
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+          disable = { 'python', 'dart' }
+        },
         ensure_installed = {
           "c",
           "cpp",
@@ -25,50 +36,13 @@ return {
           "yaml",
           "vimdoc",
         },
-        modules = {},
-        ignore_install = {},
-        auto_install = false,
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true, disable = { 'python', 'dart' } },
-        textobjects = {
-          select = {
-            -- Textobjects currently slows down startup for dart files:
-            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
-            disable = { 'dart' },
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ['aa'] = '@parameter.outer',
-              ['ia'] = '@parameter.inner',
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['ac'] = '@class.outer',
-              ['ic'] = '@class.inner',
-            },
-          },
-          move = {
-            -- Textobjects currently slows down startup for dart files:
-            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
-            disable = { 'dart' },
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-              [']m'] = '@function.outer',
-              [']]'] = '@class.outer',
-            },
-            goto_next_end = {
-              [']M'] = '@function.outer',
-              [']['] = '@class.outer',
-            },
-            goto_previous_start = {
-              ['[m'] = '@function.outer',
-              ['[['] = '@class.outer',
-            },
-            goto_previous_end = {
-              ['[M'] = '@function.outer',
-              ['[]'] = '@class.outer',
-            },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<C-space>",
+            node_incremental = "<C-space>",
+            scope_incremental = false,
+            node_decremental = "<bs>",
           },
         },
       })
