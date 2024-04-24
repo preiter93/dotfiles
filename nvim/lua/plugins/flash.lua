@@ -9,6 +9,9 @@ return {
       modes = {
         char = {
           enabled = false,
+        },
+        search = {
+          enabled = false,
         }
       }
     })
