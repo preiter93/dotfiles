@@ -1,4 +1,4 @@
--- import the global theme variable
+-- required to import 'Theme'
 require('plugins.theme')
 
 return {
