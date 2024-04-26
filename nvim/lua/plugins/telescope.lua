@@ -8,11 +8,17 @@ return {
         local telescope = require("telescope")
         telescope.setup({
             defaults = {
-                path_display = { "smart" },
+                path_display = { "truncate" },
                 mappings = {
                     i = {
                         ['<C-u>'] = false,
                         ['<C-d>'] = false
+                    },
+                },
+                layout_strategy = 'vertical',
+                layout_config = {
+                    vertical = {
+                        width = 0.90,
                     },
                 },
             },
