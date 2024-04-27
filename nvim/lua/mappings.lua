@@ -62,3 +62,23 @@ vim.keymap.set("n", "<leader>e", ':E<CR>', { desc = 'Open explorer' })
 
 -- Enter command mode
 -- vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
+
+-- Scroll a partial page
+function ScrollPartialUp()
+    local height = vim.api.nvim_win_get_height(0)
+    local lines_to_scroll = math.max(1, math.floor(height / 8))
+
+    vim.api.nvim_feedkeys(lines_to_scroll .. "k" .. "zz", 'n', true)
+end
+
+function ScrollPartialDown()
+    local height = vim.api.nvim_win_get_height(0)
+    local lines_to_scroll = math.max(1, math.floor(height / 8))
+
+    vim.api.nvim_feedkeys(lines_to_scroll .. "j" .. "zz", 'n', true)
+end
+
+vim.cmd("command! ScrollPartialUp lua ScrollPartialUp()")
+vim.cmd("command! ScrollPartialDown lua ScrollPartialDown()")
+vim.api.nvim_set_keymap('n', '<C-e>', ':ScrollPartialUp<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-f>', ':ScrollPartialDown<CR>', { noremap = true, silent = true })
