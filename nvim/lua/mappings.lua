@@ -37,7 +37,8 @@ vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
 
 -- Paste over without copying
-vim.keymap.set("x", "<leader>p", [["_dP]], { noremap = true, silent = true })
+vim.keymap.set("x", "p", "P", { noremap = true, silent = true })
+-- vim.keymap.set("x", "<leader>p", [["_dP]], { noremap = true, silent = true })
 
 -- Move highlighted text
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
