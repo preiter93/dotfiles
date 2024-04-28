@@ -6,6 +6,11 @@ return {
   config = function()
     -- Setup
     require('flash').setup({
+      label = {
+        rainbow = {
+          enabled = true,
+        }
+      },
       modes = {
         char = {
           enabled = false,
