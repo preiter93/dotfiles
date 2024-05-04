@@ -6,6 +6,9 @@ return {
     require("nvim-treesitter.configs").setup({
       textobjects = {
         select = {
+          -- Textobjects slows down startup in dart files:
+          -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
+          disable = { 'dart' },
           enable = true,
           -- Automatically jump forward to textobj, similar to targets.vim
           lookahead = true,
@@ -27,8 +30,6 @@ return {
           },
         },
         move = {
-          -- Textobjects slows down startup in dart files:
-          -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
           disable = { 'dart' },
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
