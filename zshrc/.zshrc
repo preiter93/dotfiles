@@ -16,6 +16,19 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # Enable vi mode
 set -o vi
 
+# History settings
+HISTFILE=$HOME/.zshistory
+SAVEHIST=10000
+HISTSIZE=9999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+
+# Search history with up and down arrow
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
 # Reverse history search
 bindkey "\C-r" history-incremental-search-backward
 
@@ -65,3 +78,4 @@ source ~/local/other/istio-1.19.3/tools/_istioctl
 
 # Git aliases
 alias gitShowLast='git for-each-ref --count=30 --sort=-committerdate refs/heads/'
+

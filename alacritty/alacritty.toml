@@ -1,0 +1,17 @@
+import = [
+    "~/.config/alacritty/themes/themes/github_dark_tritanopia.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding.x = 5
+padding.y = 0
+opacity = 0.85
+blur = true
+option_as_alt = "Both"
+
+[font]
+normal.family = "JetBrainsMono Nerd Font"
+size = 16
