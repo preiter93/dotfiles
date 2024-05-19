@@ -1,5 +1,6 @@
 return {
   'folke/flash.nvim',
+  event = "VeryLazy",
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
   },
