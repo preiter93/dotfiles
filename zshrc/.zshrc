@@ -6,7 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Oh-my-zsh
 ZSH_THEME="custom"
-plugins=(git)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting web-search)
 source $ZSH/oh-my-zsh.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -79,3 +79,8 @@ source ~/local/other/istio-1.19.3/tools/_istioctl
 # Git aliases
 alias gitShowLast='git for-each-ref --count=30 --sort=-committerdate refs/heads/'
 
+# bat
+alias bat='bat -p'
+batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
