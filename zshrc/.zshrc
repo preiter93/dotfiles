@@ -18,8 +18,8 @@ set -o vi
 
 # History settings
 HISTFILE=$HOME/.zshistory
-SAVEHIST=10000
-HISTSIZE=9999
+SAVEHIST=100000
+HISTSIZE=99999
 setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
