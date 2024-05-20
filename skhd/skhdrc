@@ -9,7 +9,7 @@ alt - l: yabai -m display --focus west
 alt - h: yabai -m display --focus east
 
 # Maximize a window
-ctrl + cmd - m : yabai -m window --toggle zoom-fullscreen
+ctrl + cmd - return : yabai -m window --toggle zoom-fullscreen
 
 # Move window to display left and right
 ctrl + cmd - j : yabai -m window --warp south
