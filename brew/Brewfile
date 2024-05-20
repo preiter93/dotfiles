@@ -57,6 +57,7 @@ brew "yamllint"
 brew "yq"
 brew "bufbuild/buf/buf"
 brew "dart-lang/dart/dart", link: false
+brew "felixkratz/formulae/borders"
 brew "felixkratz/formulae/sketchybar", args: ["HEAD"]
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
