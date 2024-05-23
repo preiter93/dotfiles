@@ -9,7 +9,7 @@ alt - l: yabai -m display --focus west
 alt - h: yabai -m display --focus east
 
 # Maximize a window
-ctrl + cmd - return : yabai -m window --toggle zoom-fullscreen
+ctrl + cmd - m : yabai -m window --toggle zoom-fullscreen
 
 # Move window to display left and right
 ctrl + cmd - j : yabai -m window --warp south
@@ -35,6 +35,9 @@ ctrl + cmd - n : yabai -m window --space next;
 ctrl + cmd - 1 : yabai -m window --space 1;
 ctrl + cmd - 2 : yabai -m window --space 2;
 ctrl + cmd - 3 : yabai -m window --space 3;
+ctrl + cmd - 4 : yabai -m window --space 4;
+ctrl + cmd - 5 : yabai -m window --space 5;
+ctrl + cmd - 6 : yabai -m window --space 6;
 
 # Balance window size
 ctrl + cmd - e : yabai -m space --balance
