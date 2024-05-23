@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Adding Mission Control Space Indicators
-SPACE_SIDS=(1 2 3 4 5)
+SPACE_SIDS=(1 2 3 4 5 6 7)
 
 for sid in "${SPACE_SIDS[@]}"
 do
