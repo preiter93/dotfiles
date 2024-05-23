@@ -2,7 +2,9 @@ local M = {}
 
 -- LSP settings.
 -- This function gets run when an LSP connects to a particular buffer.
-function M.on_attach(client, bufnr)
+function M.on_attach(client, bufnr, forceAutoformat)
+  if forceAutoformat == nil then forceAutoformat = false end
+
   -- Convenience method to easily define LSP related key mappings.
   local nmap = function(keys, func, desc)
     if desc then
@@ -50,7 +52,7 @@ function M.on_attach(client, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 
   -- Autoformat when saving
-  if client.supports_method("textDocument/formatting") then
+  if forceAutoformat or client.supports_method("textDocument/formatting") then
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       callback = function()
