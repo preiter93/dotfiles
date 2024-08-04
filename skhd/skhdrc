@@ -1,3 +1,5 @@
+# skhd --restart-service
+
 # change window focus within space
 cmd - j : yabai -m window --focus south
 cmd - k : yabai -m window --focus north
@@ -17,15 +19,15 @@ ctrl + cmd - k : yabai -m window --warp north
 ctrl + cmd - h : yabai -m window --warp west
 ctrl + cmd - l : yabai -m window --warp east
 
-# Rotate layout clockwise
-ctrl + cmd - r : yabai -m space --rotate 270
+# # Rotate layout clockwise
+# ctrl + cmd - r : yabai -m space --rotate 270
 
 # Rotate on X and Y Axis
-ctrl + cmd - y : yabai -m space --mirror y-axis
-ctrl + cmd - x : yabai -m space --mirror x-axis
+# ctrl + cmd - y : yabai -m space --mirror y-axis
+# ctrl + cmd - x : yabai -m space --mirror x-axis
 
-# Toggle window split type
-ctrl + cmd - s : yabai -m window --toggle split
+# # Toggle window split type
+# ctrl + cmd - s : yabai -m window --toggle split
 
 # move window to prev and next space
 ctrl + cmd - p : yabai -m window --space prev;
@@ -49,6 +51,6 @@ ctrl + cmd - up : yabai -m window --resize bottom:0:-20 2> /dev/null || yabai -m
 ctrl + cmd - right : yabai -m window --resize right:20:0 2> /dev/null || yabai -m window --resize left:20:0 2> /dev/null
 
 # stop/start/restart yabai
-ctrl + alt - q : yabai --stop-service
-ctrl + alt - s : yabai --start-service
-ctrl + alt - r : yabai --restart-service
+ctrl + cmd - r : yabai --stop-service
+ctrl + cmd - s : yabai --start-service
+# ctrl + cmd - r : yabai --restart-service
