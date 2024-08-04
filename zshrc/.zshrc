@@ -38,7 +38,7 @@ export PATH="$PATH:$HOME/local/scripts"
 
 # wireman config
 export WIREMAN_CONFIG_DIR="$HOME/.config/wireman"
-alias wireman="$HOME/Rust/wireman/target/debug/wireman"
+alias wireman="$HOME/Rust/wireman/target/release/wireman"
 
 # go path
 export GOPATH="$HOME/go"
