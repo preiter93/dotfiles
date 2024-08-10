@@ -13,10 +13,49 @@ return {
       local dapgo = require "dap-go"
       local dapui = require "dapui"
 
-      require("dapui").setup()
+      require("dapui").setup(
+        {
+          layouts = {
+            {
+              elements = {
+                -- Elements can be strings or table with id and size keys.
+                "scopes",
+                { id = "breakpoints", size = 0.1 },
+                -- "stacks",
+                -- "watches",
+                -- { id = "watches", size = 0. },
+              },
+              size = 40, -- 40 columns
+              position = "left",
+            },
+            -- {
+            --   elements = {
+            --     -- "repl",
+            --     -- "console",
+            --   },
+            --   size = 0.25, -- 25% of total lines
+            --   position = "bottom",
+            -- },
+          },
+        }
+      )
       require("dap-go").setup()
       require("nvim-dap-virtual-text").setup {
         enabled = true,
+        display_callback = function(variable, _, _, _, options)
+          -- by default, strip out new line characters
+          local truncated_value = variable.value:gsub('%s+', ' ')
+          -- truncate the number of chararcters per value
+          local max_display_length = 50
+          if #truncated_value > max_display_length then
+            truncated_value = truncated_value:sub(1, max_display_length) .. '...'
+          end
+          if options.virt_text_pos == 'inline' then
+            return ' = ' .. truncated_value
+          else
+            return variable.name .. ' = ' .. truncated_value
+          end
+        end,
       }
 
       vim.keymap.set("n", "<F1>", dap.continue)
