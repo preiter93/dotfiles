@@ -1,6 +1,10 @@
 [alias]
 	# Pull origin main
 	pm = !git pull origin main
+	# Push
+	p = push
+	# Force push
+	pf = push -f
 	# Switch to main
 	sm = switch main
 	# Rebase branch with main
