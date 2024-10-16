@@ -54,9 +54,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
--- Substitute the word under the cursor
-vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>]], { desc = '[R]eplace [W]ord' })
-
 -- Use '<leader>e' to open the file explorer in the current directory
 vim.keymap.set("n", "<leader>e", ':Explore<CR>', { desc = 'Open explorer' })
 
@@ -82,3 +79,24 @@ vim.cmd("command! ScrollPartialUp lua ScrollPartialUp()")
 vim.cmd("command! ScrollPartialDown lua ScrollPartialDown()")
 vim.api.nvim_set_keymap('n', '<C-e>', ':ScrollPartialUp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-f>', ':ScrollPartialDown<CR>', { noremap = true, silent = true })
+
+-- Substitute the word under the cursor
+vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>//gc<Left><Left><Left>]], { desc = '[R]eplace [W]ord' })
+
+-- Substitute words in a selection
+vim.api.nvim_set_keymap('v', '<leader>rs', ':lua ReplaceWordInSelection()<CR>',
+    { noremap = true, silent = true, desc = '[R]eplace in [S]election' })
+
+function ReplaceWordInSelection()
+    local word_to_replace = vim.fn.input("Replace: ")
+    if word_to_replace == "" then
+        return
+    end
+
+    local replacement_word = vim.fn.input("With: ")
+    if replacement_word == "" then
+        return
+    end
+
+    vim.cmd("'<,'>s/\\<" .. word_to_replace .. "\\>/" .. replacement_word .. "/g")
+end
