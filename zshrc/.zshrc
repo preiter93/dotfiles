@@ -14,7 +14,6 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # Enable vi mode
 set -o vi
 
-
 # History settings
 HISTFILE=$HOME/.zshistory
 SAVEHIST=100000
@@ -34,6 +33,9 @@ bindkey "\C-r" history-incremental-search-backward
 # Local scripts
 export PATH="$PATH:$HOME/local/bin"
 export PATH="$PATH:$HOME/local/scripts"
+
+# nvim
+alias nv="nvim"
 
 # wireman config
 export WIREMAN_CONFIG_DIR="$HOME/.config/wireman"

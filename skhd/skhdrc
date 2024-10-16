@@ -27,7 +27,7 @@ ctrl + cmd - l : yabai -m window --warp east
 # ctrl + cmd - x : yabai -m space --mirror x-axis
 
 # # Toggle window split type
-# ctrl + cmd - s : yabai -m window --toggle split
+ctrl + cmd - s : yabai -m window --toggle split
 
 # move window to prev and next space
 ctrl + cmd - p : yabai -m window --space prev;
