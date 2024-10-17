@@ -93,10 +93,7 @@ function ReplaceWordInSelection()
         return
     end
 
-    local replacement_word = vim.fn.input("With: ")
-    if replacement_word == "" then
-        return
-    end
-
-    vim.cmd("'<,'>s/\\<" .. word_to_replace .. "\\>/" .. replacement_word .. "/g")
+    local cmd = "'<,'>s/\\<" .. word_to_replace .. "\\>//g"
+    local move_left = vim.api.nvim_replace_termcodes("<Left><Left>", true, true, true)
+    vim.api.nvim_feedkeys(":" .. cmd .. move_left, "n", false)
 end
