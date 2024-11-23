@@ -36,6 +36,24 @@ return {
           telemetry = { enable = false },
         },
       },
+      gopls = {
+        buildFlags = { "-tags=smoketest" },
+        testTags = "smoketest",
+        env = { GOFLAGS = "-tags=smoketest" },
+      },
+      -- configs.gopls = {
+      --   default_config = {
+      --     cmd = {'gopls', '--remote=auto'},
+      --     filetypes = { "go", "gomod" },
+      --     settings = {
+      --       gopls = {
+      --         usePlaceholders = true,
+      --         buildFlags =  {"-tags=integration"},
+      --         gofumpt = true,
+      --       }
+      --     },
+      --   }
+      -- }
     }
     -- set keybindings
     mason_lspconfig.setup_handlers({

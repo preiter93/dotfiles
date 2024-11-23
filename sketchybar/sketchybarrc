@@ -29,7 +29,7 @@ default=(
 sketchybar --default "${default[@]}"
 
 # Adding Left Items
-source $ITEM_DIR/spaces.sh
+source $ITEM_DIR/aerospace.sh
 source $ITEM_DIR/chevron.sh
 source $ITEM_DIR/front_app.sh
 

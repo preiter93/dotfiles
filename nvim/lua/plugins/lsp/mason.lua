@@ -33,6 +33,7 @@ return {
         "cssls",
         "tailwindcss",
         "pylsp",
+        "bufls",
       },
     })
   end,
