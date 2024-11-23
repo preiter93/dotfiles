@@ -54,6 +54,9 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
+-- Open todo
+vim.keymap.set('n', '<leader>to', ':e ~/tmp/todo<CR>', { desc = "Open todos" })
+
 -- Use '<leader>e' to open the file explorer in the current directory
 vim.keymap.set("n", "<leader>e", ':Explore<CR>', { desc = 'Open explorer' })
 
@@ -93,7 +96,7 @@ function ReplaceWordInSelection()
         return
     end
 
-    local cmd = "'<,'>s/\\<" .. word_to_replace .. "\\>//g"
+    local cmd = "'<,'>s/" .. word_to_replace .. "//g"
     local move_left = vim.api.nvim_replace_termcodes("<Left><Left>", true, true, true)
     vim.api.nvim_feedkeys(":" .. cmd .. move_left, "n", false)
 end

@@ -37,6 +37,9 @@ export PATH="$PATH:$HOME/local/scripts"
 # nvim
 alias nv="nvim"
 
+# rg
+alias rgf='rg --files | rg'
+
 # wireman config
 export WIREMAN_CONFIG_DIR="$HOME/.config/wireman"
 alias wireman="$HOME/Rust/wireman/target/release/wireman"
