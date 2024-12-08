@@ -74,8 +74,9 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PATH="$PATH:/opt/homebrew/Caskroom/flutter/3.0.5/flutter/bin/cache/dart-sdk/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
-# kubectl autocomplete
+# kubectl
 source <(kubectl completion zsh)
+alias k=kubectl
 
 # istioctl autocomplete
 source ~/local/other/istio-1.19.3/tools/_istioctl

@@ -44,7 +44,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = "move-mouse window-lazy-center"
+# on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -124,6 +124,7 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-a = 'workspace A'
 alt-b = 'workspace B'
+alt-o = 'workspace O'
 alt-t = 'workspace T'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -132,6 +133,7 @@ alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-b = 'move-node-to-workspace B'
+alt-shift-o = 'move-node-to-workspace O'
 alt-shift-t = 'move-node-to-workspace T'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -168,4 +170,13 @@ run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = "move-node-to-workspace A"
+run = "move-node-to-workspace 1"
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+A = 'main'
+O = 'main'
+B = ['secondary', 'main']
+T = ['secondary', 'main']
