@@ -1,4 +1,5 @@
 -- [[ Basic Keymaps ]]
+local utils = require("utils")
 
 -- Use CTRL+s to update
 vim.keymap.set('n', '<C-s>', ':update<CR>', { silent = true, noremap = true })
@@ -99,4 +100,36 @@ function ReplaceWordInSelection()
     local cmd = "'<,'>s/" .. word_to_replace .. "//g"
     local move_left = vim.api.nvim_replace_termcodes("<Left><Left>", true, true, true)
     vim.api.nvim_feedkeys(":" .. cmd .. move_left, "n", false)
+end
+
+vim.api.nvim_set_keymap(
+    "v",
+    "gs",
+    ":lua SurroundCSSWithComment()<CR>",
+    { noremap = true, silent = true, desc = "Surround css style with comment" }
+)
+
+function SurroundCSSWithComment()
+    local bufnr = vim.api.nvim_get_current_buf()
+
+    local start_row, _ = unpack(vim.api.nvim_buf_get_mark(bufnr, "<"))
+    local end_row, _ = unpack(vim.api.nvim_buf_get_mark(bufnr, ">"))
+
+    start_row = start_row - 1
+    end_row = end_row
+
+    for i = start_row, end_row - 1 do
+        local line = vim.api.nvim_buf_get_lines(bufnr, i, i + 1, false)[1]
+        if line then
+            -- Check if the line is already surrounded with /* and */
+            if line:match("^%s*/%*.*%*/%s*$") then
+                -- Remove the surrounding /* and */
+                line = line:gsub("^%s*/%*%s*", ""):gsub("%s*%*/%s*$", "")
+            else
+                -- Surround line with /* and */
+                line = "/* " .. line .. " */"
+            end
+            vim.api.nvim_buf_set_lines(bufnr, i, i + 1, false, { line })
+        end
+    end
 end
