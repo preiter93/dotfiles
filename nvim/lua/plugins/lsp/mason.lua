@@ -31,7 +31,7 @@ return {
         "svelte",
         "html",
         "pylsp",
-        "bufls",
+        -- "bufls",  -- deprecated
       },
     })
   end,
