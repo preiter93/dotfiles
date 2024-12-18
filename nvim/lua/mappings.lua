@@ -85,11 +85,14 @@ vim.api.nvim_set_keymap('n', '<C-e>', ':ScrollPartialUp<CR>', { noremap = true, 
 vim.api.nvim_set_keymap('n', '<C-f>', ':ScrollPartialDown<CR>', { noremap = true, silent = true })
 
 -- Substitute the word under the cursor
-vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>//gc<Left><Left><Left>]], { desc = '[R]eplace [W]ord' })
+vim.keymap.set("n", "<leader>rw", ':%s/<C-r><C-w>//gc<Left><Left><Left>', { desc = '[R]eplace [W]ord' })
+
+-- Substitute the visual selection
+vim.keymap.set("v", "<leader>rs", '\"hy:%s/<C-r>h//gc<Left><Left><Left>', { desc = '[R]eplace [S]election' })
 
 -- Substitute words in a selection
-vim.api.nvim_set_keymap('v', '<leader>rs', ':lua ReplaceWordInSelection()<CR>',
-    { noremap = true, silent = true, desc = '[R]eplace in [S]election' })
+vim.api.nvim_set_keymap('v', '<leader>rw', ':lua ReplaceWordInSelection()<CR>',
+    { desc = '[R]eplace [W]ord in Selection' })
 
 function ReplaceWordInSelection()
     local word_to_replace = vim.fn.input("Replace: ")
