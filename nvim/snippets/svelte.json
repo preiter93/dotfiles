@@ -2,7 +2,7 @@
     "svelte-page-setup": {
         "prefix": "setup",
         "body": [
-            "<script>",
+            "<script lang=\"ts\">",
             "\t${1:// your script goes here}",
             "</script>",
             "",
@@ -16,7 +16,7 @@
     },
     "svelte-script": {
         "prefix": "script",
-        "body": ["<script>", "\t${1:/* your styles go here */}", "</script>"],
+        "body": ["<script lang=\"ts\">", "\t${1:/* your styles go here */}", "</script>"],
         "description": "add scripts to your svelte file"
     },
     "svelte-style": {
@@ -137,5 +137,39 @@
             "{/await}"
         ],
         "description": "await catch block"
+    },
+    "svelte-snippet": {
+        "prefix": "snippet",
+        "body": [
+            "{#snippet ${1:name}()}",
+            "    ${2:content}",
+            "{/snippet}"
+        ],
+        "description": "snippet"
+    },
+    "svelte-props": {
+        "prefix": "props",
+        "body": [
+            "let { ${1:variable} }: { ${1:variable}: string } = $$props();"
+        ],
+        "description": "props"
+    },
+    "svelte-props-children": {
+        "prefix": "children",
+        "body": [
+            "import type { Snippet } from 'svelte';",
+            "",
+            "let { children }: { children: Snippet } = $$props();"
+        ],
+        "description": "props with children"
+    },
+    "svelte-effect": {
+        "prefix": "effect",
+        "body": [
+            "$$effect(() => {",
+            "    ${1:content}",
+            "});"
+        ],
+        "description": "effect"
     }
 }
