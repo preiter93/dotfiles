@@ -53,7 +53,24 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- Quickfix list
+vim.keymap.set('n', '[q', ":cprev<CR>", { desc = "Go to previous quickfix value" })
+vim.keymap.set('n', ']q', ":cnext<CR>", { desc = "Go to next quickfix value" })
+vim.keymap.set('n', '<leader>q', function()
+    local quickfix_open = false
+    for _, win in ipairs(vim.fn.getwininfo()) do
+        if win.quickfix == 1 then
+            quickfix_open = true
+            break
+        end
+    end
+    if quickfix_open then
+        vim.cmd('cclose')
+    else
+        vim.cmd('copen')
+    end
+end, { desc = "Toggle Quickfix List" })
 
 -- Open todo
 vim.keymap.set('n', '<leader>to', ':e ~/tmp/todo<CR>', { desc = "Open todos" })
