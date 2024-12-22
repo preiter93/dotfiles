@@ -78,29 +78,6 @@ vim.keymap.set('n', '<leader>to', ':e ~/tmp/todo<CR>', { desc = "Open todos" })
 -- Use '<leader>e' to open the file explorer in the current directory
 vim.keymap.set("n", "<leader>e", ':Explore<CR>', { desc = 'Open explorer' })
 
--- Enter command mode
--- vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
-
--- Scroll a partial page
-function ScrollPartialUp()
-    local height = vim.api.nvim_win_get_height(0)
-    local lines_to_scroll = math.max(1, math.floor(height / 8))
-
-    vim.api.nvim_feedkeys(lines_to_scroll .. "k" .. "zz", 'n', true)
-end
-
-function ScrollPartialDown()
-    local height = vim.api.nvim_win_get_height(0)
-    local lines_to_scroll = math.max(1, math.floor(height / 8))
-
-    vim.api.nvim_feedkeys(lines_to_scroll .. "j" .. "zz", 'n', true)
-end
-
-vim.cmd("command! ScrollPartialUp lua ScrollPartialUp()")
-vim.cmd("command! ScrollPartialDown lua ScrollPartialDown()")
-vim.api.nvim_set_keymap('n', '<C-e>', ':ScrollPartialUp<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-f>', ':ScrollPartialDown<CR>', { noremap = true, silent = true })
-
 -- Substitute the word under the cursor
 vim.keymap.set("n", "<leader>rw", ':%s/<C-r><C-w>//gc<Left><Left><Left>', { desc = '[R]eplace [W]ord' })
 
@@ -122,6 +99,7 @@ function ReplaceWordInSelection()
     vim.api.nvim_feedkeys(":" .. cmd .. move_left, "n", false)
 end
 
+-- Surround visual selection with /* */.
 vim.api.nvim_set_keymap(
     "v",
     "gs",
