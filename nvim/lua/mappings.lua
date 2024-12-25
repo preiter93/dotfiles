@@ -131,3 +131,16 @@ function SurroundCSSWithComment()
         end
     end
 end
+
+-- Accenting of vowels interferes with jump to marks
+vim.keymap.set('n', 'á', "'a", { silent = true })
+vim.keymap.set('n', 'à', '`a', { silent = true })
+vim.keymap.set('n', 'ç', "'c", { silent = true })
+vim.keymap.set('n', 'é', "'e", { silent = true })
+vim.keymap.set('n', 'è', '`e', { silent = true })
+vim.keymap.set('n', 'í', "'i", { silent = true })
+vim.keymap.set('n', 'ì', '`i', { silent = true })
+vim.keymap.set('n', 'ó', "'o", { silent = true })
+vim.keymap.set('n', 'ò', '`o', { silent = true })
+vim.keymap.set('n', 'ú', "'u", { silent = true })
+vim.keymap.set('n', 'ù', '`u', { silent = true })
