@@ -24,7 +24,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "rust_analyzer@2024-10-14", -- https://github.com/rust-lang/rust-analyzer/issues/18434
+        "rust_analyzer@2024-09-30", -- https://github.com/rust-lang/rust-analyzer/issues/18434
         "lua_ls",
         "gopls",
         "ts_ls",
