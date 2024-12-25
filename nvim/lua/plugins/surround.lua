@@ -5,7 +5,10 @@ return {
   config = function()
     require("nvim-surround").setup({
       keymaps = {
+        normal = "ys",
         visual = "S",
+        delete = "ds",
+        change = "cs",
       },
     })
   end,
