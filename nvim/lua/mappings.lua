@@ -72,6 +72,9 @@ vim.keymap.set('n', '<leader>q', function()
     end
 end, { desc = "Toggle Quickfix List" })
 
+-- Open marks in quickfix list
+vim.keymap.set('n', '<leader>sm', ":MarksQFListAll<CR>", { desc = "Fill the quickfixx list with all marks" })
+
 -- Open todo
 vim.keymap.set('n', '<leader>to', ':e ~/tmp/todo<CR>', { desc = "Open todos" })
 
