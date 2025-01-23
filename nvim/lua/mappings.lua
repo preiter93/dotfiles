@@ -41,6 +41,12 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
 vim.keymap.set("x", "p", "P", { noremap = true, silent = true })
 -- vim.keymap.set("x", "<leader>p", [["_dP]], { noremap = true, silent = true })
 
+-- Go to start/end of line
+vim.keymap.set("n", "L", "$", { noremap = true, silent = true })
+vim.keymap.set("v", "L", "$", { noremap = true, silent = true })
+vim.keymap.set("n", "H", "_", { noremap = true, silent = true })
+vim.keymap.set("v", "L", "_", { noremap = true, silent = true })
+
 -- Move highlighted text
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
