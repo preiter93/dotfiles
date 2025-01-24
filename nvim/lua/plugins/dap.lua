@@ -14,6 +14,7 @@ return {
       local dapui = require "dapui"
 
       require("dapui").setup(
+      ---@diagnostic disable-next-line: missing-fields
         {
           layouts = {
             {
