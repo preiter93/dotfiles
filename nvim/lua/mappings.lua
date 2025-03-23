@@ -58,7 +58,6 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
 -- Quickfix list
 vim.keymap.set('n', '[q', ":cprev<CR>", { desc = "Go to previous quickfix value" })
@@ -82,7 +81,7 @@ end, { desc = "Toggle Quickfix List" })
 vim.keymap.set('n', '<leader>sm', ":MarksQFListAll<CR>", { desc = "Fill the quickfixx list with all marks" })
 
 -- Open todo
-vim.keymap.set('n', '<leader>to', ':e ~/tmp/todo<CR>', { desc = "Open todos" })
+vim.keymap.set('n', '<leader>to', ':e ~/tmp/.todo<CR>', { desc = "Open todos" })
 
 -- Use '<leader>e' to open the file explorer in the current directory
 vim.keymap.set("n", "<leader>e", ':Explore<CR>', { desc = 'Open explorer' })
@@ -153,3 +152,6 @@ vim.keymap.set('n', 'ó', "'o", { silent = true })
 vim.keymap.set('n', 'ò', '`o', { silent = true })
 vim.keymap.set('n', 'ú', "'u", { silent = true })
 vim.keymap.set('n', 'ù', '`u', { silent = true })
+
+-- Copy the path of the currently open file
+vim.keymap.set("n", "<leader>cf", ':let @+ = @%<CR>', { noremap = true, silent = true, desc = "[c]opy [f]ile path" })
