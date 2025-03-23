@@ -46,7 +46,7 @@
     "diff in test": {
         "prefix": "diff",
         "body": [
-            "if diff := cmp.Diff(tt.${1:want}, ${2:got}); diff != \"\" {",
+            "if diff := cmp.Diff(tc.${1:want}, ${2:got}); diff != \"\" {",
             "	t.Errorf(\"${3:response} mismatch (-want, +got): %s\", diff)",
             "}"
         ],
@@ -55,7 +55,7 @@
     "diff in test with a proto": {
         "prefix": "diffProto",
         "body": [
-            "if diff := cmp.Diff(tt.${1:want}, ${2:got}, protocmp.Transform()); diff != \"\" {",
+            "if diff := cmp.Diff(tc.${1:want}, ${2:got}, protocmp.Transform()); diff != \"\" {",
             "	t.Errorf(\"${3:response} mismatch (-want, +got): %s\", diff)",
             "}"
         ],
@@ -64,7 +64,7 @@
     "diff in test with an error": {
         "prefix": "diffError",
         "body": [
-            "if diff := cmp.Diff(tt.${1:want}, ${2:got}, cmpopts.EquateErrors()); diff != \"\" {",
+            "if diff := cmp.Diff(tc.${1:want}, ${2:got}, cmpopts.EquateErrors()); diff != \"\" {",
             "	t.Errorf(\"${3:error} mismatch (-want, +got): %s\", diff)",
             "}"
         ],
@@ -75,13 +75,14 @@
         "body": [
             "func Test_${1:Name}(t *testing.T) {",
             "	tests := []struct {",
-            "		name    string",
-            "		want    string",
-            "		wantErr error",
+            "		name     string",
+            "		givenReq *pb.GetTreatmentReq",
+            "		wantResp *pb.GetTreatmentResp",
+            "		wantErr  error",
             "	}{",
             "		{",
-            "			name:    \"happy path\",",
-            "			wantErr: nil,",
+            "			name:     \"happy path\",",
+            "			wantResp: &pb.GetTreatmentResp{},",
             "		},",
             "		{",
             "			name:    \"error\",",
@@ -90,12 +91,18 @@
             "	}",
             "	for _, tc := range tests {",
             "		t.Run(tc.name, func(t *testing.T) {",
-            "			got, err := ${2: MyFunction()}",
+            "			// given",
+            "			ctx := context.Background()",
+            "			s := &server{}",
+            "",
+            "			// when",
+            "			got, err := ${2: s.GetTreatment(ctx, tc.givenReq)}",
+            "",
+            "			// then",
             "			if diff := cmp.Diff(tc.wantErr, err, cmpopts.EquateErrors()); diff != \"\" {",
             "				t.Errorf(\"error mismatch (-want, +got):\\n%s\", diff)",
             "			}",
-            "			opts := []cmp.Option{cmpopts.IgnoreUnexported(pb.Date{})}",
-            "			if diff := cmp.Diff(tc.want, got, opts...); diff != \"\" {",
+            "			if diff := cmp.Diff(tc.wantResp, got, protocmp.Transform()); diff != \"\" {",
             "				t.Errorf(\"response mismatch (-want, +got):\\n%s\", diff)",
             "			}",
             "		})",

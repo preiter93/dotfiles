@@ -19,24 +19,22 @@ return {
           layouts = {
             {
               elements = {
-                -- Elements can be strings or table with id and size keys.
+                { id = "breakpoints", size = 0.2 },
                 "scopes",
-                { id = "breakpoints", size = 0.1 },
-                -- "stacks",
-                -- "watches",
-                -- { id = "watches", size = 0. },
+                "watches",
               },
-              size = 40, -- 40 columns
+              size = 50, -- 40 columns
               position = "left",
             },
-            -- {
-            --   elements = {
-            --     -- "repl",
-            --     -- "console",
-            --   },
-            --   size = 0.25, -- 25% of total lines
-            --   position = "bottom",
-            -- },
+            {
+              elements = {
+                -- "console",
+                "stacks",
+                "repl",
+              },
+              size = 0.30,
+              position = "bottom",
+            },
           },
         }
       )
@@ -59,25 +57,23 @@ return {
         end,
       }
 
-      vim.keymap.set("n", "<F1>", dap.continue)
-      vim.keymap.set("n", "<F2>", dap.step_into)
-      vim.keymap.set("n", "<F3>", dap.step_over)
-      vim.keymap.set("n", "<F4>", dap.step_out)
-      vim.keymap.set("n", "<F5>", dap.terminate)
-      -- Eval var under cursor
-      vim.keymap.set("n", "<F6>", function()
+      vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "[d]ap [c]ontinue" })
+      vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "[d]ap step [i]nto" })
+      vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "[d]ap step [o]ver" })
+      vim.keymap.set("n", "<leader>du", dap.step_out, { desc = "[d]ap step o[u]t" })
+      vim.keymap.set("n", "<leader>dx", dap.terminate, { desc = "[d]ap e[x]it" })
+      vim.keymap.set("n", "<leader>de", function()
         ---@diagnostic disable-next-line: missing-fields
         require("dapui").eval(nil, { enter = true })
-      end)
+      end, { desc = "[d]ap [e]val under cursor" })
 
 
-      vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
-      vim.keymap.set("n", "<leader>B", function()
-        dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
-      end)
-      vim.keymap.set("n", "<leader>C", dap.clear_breakpoints)
+      vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "[d]ap toggle [b]reakpoint" })
+      vim.keymap.set("n", "<leader>dB", dap.clear_breakpoints, { desc = "[d]ap clean [B]reakpoints" })
+      vim.keymap.set("n", "<leader>dh", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
+        { desc = "[d]ap breakpoint condition" })
       vim.keymap.set("n", '<leader>dl', dap.run_last, { desc = "[d]ap run [l]ast" })
-      vim.keymap.set("n", "<leader>dc", dap.run_to_cursor, { desc = "[d]ap run to [c]ursor" })
+      vim.keymap.set("n", "<leader>dr", dap.run_to_cursor, { desc = "[d]ap [r]un to cursor" })
       vim.keymap.set("n", "<leader>dt", dapgo.debug_test, { desc = "[d]ebug go [t]est" })
 
       dap.listeners.before.attach.dapui_config = function()

@@ -117,6 +117,15 @@
             " });"
         ],
         "description": "Create a table test function"
+    },
+    "Theme": {
+        "prefix": "theme",
+        "body": [
+            "class _${1:Name}Theme {",
+            "  _${1:Name}Theme(DSTokensData d) : textStyle = d.text.textBase;",
+            "  final TextStyle textStyle;",
+            "}"
+        ]
     }
 }
 

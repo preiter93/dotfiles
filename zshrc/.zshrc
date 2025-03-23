@@ -51,6 +51,9 @@ export PATH="$PATH:$GOPATH/bin"
 # gedit equivalent
 alias gedit='open -a TextEdit'
 
+# make
+export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+
 # node.js
 export NVM_DIR="$HOME/.nvm"
 
@@ -81,6 +84,9 @@ alias k=kubectl
 # istioctl autocomplete
 source ~/local/other/istio-1.19.3/tools/_istioctl
 
+# watson autocomplete
+source ~/local/other/watson/watson.completion
+
 # Git aliases
 alias gitShowLast='git for-each-ref --count=30 --sort=-committerdate refs/heads/'
 
@@ -89,3 +95,12 @@ alias bat='bat -p'
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
+
+# watson
+alias ws='watson start'
+alias we='watson stop'
+alias wl='watson log'
+alias wi='watson status'
+
+# sdl2
+export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"

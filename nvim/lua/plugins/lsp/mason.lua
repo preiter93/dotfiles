@@ -32,7 +32,8 @@ return {
         "html",
         "pylsp",
         "cssls",
-        -- "bufls",  -- deprecated
+        -- "godot",
+        -- "bufls", -- deprecated
       },
     })
   end,
