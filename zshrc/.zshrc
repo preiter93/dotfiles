@@ -81,6 +81,8 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 source <(kubectl completion zsh)
 alias k=kubectl
 
+export KUBE_EDITOR=nvim
+
 # istioctl autocomplete
 source ~/local/other/istio-1.19.3/tools/_istioctl
 
@@ -98,9 +100,11 @@ batdiff() {
 
 # watson
 alias ws='watson start'
-alias we='watson stop'
+alias wx='watson stop'
+alias we='watson edit'
 alias wl='watson log'
 alias wi='watson status'
 
 # sdl2
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
+export C_INCLUDE_PATH="/opt/homebrew/include"

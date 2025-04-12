@@ -126,6 +126,30 @@
             "  final TextStyle textStyle;",
             "}"
         ]
+    },
+    "Model": {
+        "prefix": "model",
+        "body": [
+
+            "/// A [${1:Name}ViewModel].",
+            "class ${1:Name}ViewModel {",
+            "  /// Create a new [${1:Name}ViewModel]",
+            "  const ${1:Name}ViewModel({",
+            "    required this.isOwner,",
+            "  });",
+            "",
+            "  /// Creates a [${1:Name}ViewModel] from state.",
+            "  factory ${1:Name}ViewModel.fromState({",
+            "   required IUserProvider userState,",
+            "  }) =>",
+            "      ${1:Name}ViewModel(",
+            "        isOwner: userState.user?.role == Role.owner,",
+            "      );",
+            "",
+            "  /// Whether the user is the account owner.",
+            "  final bool isOwner;",
+            "}"
+        ]
     }
 }
 
