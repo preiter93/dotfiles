@@ -84,7 +84,7 @@ vim.keymap.set('n', '<leader>sm', ":MarksQFListAll<CR>", { desc = "Fill the quic
 vim.keymap.set('n', '<leader>to', ':e ~/tmp/.todo<CR>', { desc = "Open todos" })
 
 -- Use '<leader>e' to open the file explorer in the current directory
-vim.keymap.set("n", "<leader>e", ':Explore<CR>', { desc = 'Open explorer' })
+vim.keymap.set("n", "<leader>e", ':Oil<CR>', { desc = 'Open explorer' })
 
 -- Substitute the word under the cursor
 vim.keymap.set("n", "<leader>rw", ':%s/<C-r><C-w>//gc<Left><Left><Left>', { desc = '[R]eplace [W]ord' })
