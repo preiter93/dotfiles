@@ -1,6 +1,10 @@
 -- [[ Basic Keymaps ]]
 local utils = require("utils")
 
+-- Enter command mode with ;
+-- vim.keymap.set('n', ';', ':', { desc = 'Enter command mode' })
+vim.keymap.set('n', ';', ':update<CR>', { desc = 'Save buffer', silent = true })
+
 -- Use CTRL+s to update
 vim.keymap.set('n', '<C-s>', ':update<CR>', { silent = true, noremap = true })
 vim.keymap.set('i', '<C-s>', '<C-C>:update<CR>', { silent = true, noremap = true })
@@ -54,6 +58,11 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 -- Use <Tab> and <S-Tab> to indent a selection
 vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
+
+-- Code companion mappings
+vim.keymap.set({ "n", "v" }, "<Leader>cca", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Leader>ccc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })

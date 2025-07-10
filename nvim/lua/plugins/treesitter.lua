@@ -38,6 +38,7 @@ return {
         },
         incremental_selection = {
           enable = true,
+          disable = { 'markdown' }, -- conflicts with vimwiki
           keymaps = {
             init_selection = "<CR>",
             node_incremental = "<CR>",
