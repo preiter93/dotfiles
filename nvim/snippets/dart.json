@@ -107,7 +107,7 @@
             "  for (final data in testCases) {",
             "    final name = data['name']! as String;",
             "",
-            "    testWidgets('$$name', (WidgetTester tester) async {",
+            "    testWidgets($name, (WidgetTester tester) async {",
             "      final app = Container();",
             "      await tester.pumpWidget(",
             "        TestApp(child: app),",

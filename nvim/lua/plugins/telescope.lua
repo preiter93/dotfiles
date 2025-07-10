@@ -59,5 +59,13 @@ return {
         -- Map `<leader>sp` to open Telescope's `pickers` picker
         vim.keymap.set('n', '<leader>sp', require('telescope.builtin').pickers,
             { desc = '[S]earch [P]ickers' })
+
+        -- Map `<leader>ds` to open Telescope's `document symbols` picker
+        vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols,
+            { desc = 'Search [D]ocument [S]ymbols' })
+
+        -- Map `<leader>ws` to open Telescope's `workspace symbols` picker
+        vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+            { desc = 'Search [W]orkspace [S]ymbols' })
     end
 }

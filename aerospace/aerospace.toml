@@ -172,6 +172,10 @@ run = "move-node-to-workspace B"
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = "move-node-to-workspace 1"
 
+[[on-window-detected]]
+if.app-id = "com.google.Chrome.app.mdpkiolbdkhdjpekfbkbmhigcaggjagi"
+run = "move-node-to-workspace 1"
+
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'

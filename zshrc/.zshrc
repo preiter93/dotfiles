@@ -60,7 +60,8 @@ export NVM_DIR="$HOME/.nvm"
 # java
 export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home"
 
-# git autocomplete
+# git and docker autocomplete
+fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit && compinit
 
 # cocoapod

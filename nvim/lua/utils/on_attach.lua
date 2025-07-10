@@ -22,6 +22,9 @@ function M.on_attach(client, bufnr, forceAutoformat)
   -- Go to definition
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
 
+  -- Go to type definition
+  nmap('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
+
   -- Go to references
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
@@ -30,12 +33,6 @@ function M.on_attach(client, bufnr, forceAutoformat)
 
   -- Go to type definition
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-
-  -- List document symbols
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
-  -- List workspace symbols
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- Show documentation for the element under the cursor
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
