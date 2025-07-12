@@ -7,9 +7,6 @@ return {
     { "folke/neodev.nvim",                   opts = {} },
   },
   config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
-
     -- import mason_lspconfig plugin
     local mason_lspconfig = require("mason-lspconfig")
 
@@ -24,37 +21,42 @@ return {
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
     -- set server specific settings
-    local server_settings = {
-      rust_analyzer = {
-        checkOnSave = {
-          command = "clippy",
-        },
-      },
-      lua_ls = {
+    vim.lsp.config("lua_ls", {
+      settings = {
         Lua = {
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
+          diagnostics = {
+            globals = { 'vim' }
+          }
         },
-      },
-      gopls = {
+      }
+    })
+    vim.lsp.config("rust_analyzer", {
+      settings = {
+        checkOnSave = {
+          command = "clippy",
+        },
+      }
+    })
+    vim.lsp.config("gopls", {
+      settings = {
         buildFlags = { "-tags=smoketest" },
         testTags = "smoketest",
         env = { GOFLAGS = "-tags=smoketest" },
-      },
-    }
+      }
+    })
 
-    local filetypes = {}
+    mason_lspconfig.setup({})
 
-    -- set keybindings
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-          on_attach = utils.on_attach,
-          settings = server_settings[server_name],
-          filetypes = filetypes[server_name],
-        })
-      end,
+    -- on attach
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+      callback = function(event)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        client.capabilities = capabilities;
+        utils.on_attach(client, event.buf)
+      end
     })
   end
 }

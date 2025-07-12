@@ -30,6 +30,7 @@ return {
         "gopls",
         "ts_ls",
         "svelte",
+        -- might require: npm i -g vscode-langservers-extracted
         "html",
         "pylsp",
         "cssls",
