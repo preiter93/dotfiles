@@ -35,7 +35,8 @@ export PATH="$PATH:$HOME/local/bin"
 export PATH="$PATH:$HOME/local/scripts"
 
 # nvim
-alias nv="nvim"
+alias v="nvim"
+alias nd='cd $HOME/dotfiles/nvim'
 
 # rg
 alias rgf='rg --files | rg'
