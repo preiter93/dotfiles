@@ -5,6 +5,8 @@ return {
         require("flutter-tools").setup {
             lsp = {
                 on_attach = function(client, bufnr)
+                    -- force-enable go-to-definition. Fixes "method textDocument/definition is not supported" issue.
+                    client.server_capabilities.definitionProvider = true
                     require('utils').on_attach(client, bufnr, true)
 
                     if vim.bo[bufnr].filetype == "dart" then
