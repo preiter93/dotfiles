@@ -8,7 +8,7 @@ return {
   },
   config = function()
     -- import mason_lspconfig plugin
-    local mason_lspconfig = require("mason-lspconfig")
+    -- local mason_lspconfig = require("mason-lspconfig")
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -47,13 +47,19 @@ return {
       }
     })
 
-    mason_lspconfig.setup({})
+    -- mason_lspconfig.setup({})
 
     -- on attach
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
       callback = function(event)
         local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+        -- dartls is setup through flutter tools
+        if client.name == "dartls" then
+          return
+        end
+
         client.capabilities = capabilities;
         utils.on_attach(client, event.buf)
       end
