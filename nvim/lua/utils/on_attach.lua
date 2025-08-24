@@ -47,7 +47,7 @@ function M.on_attach(client, bufnr, forceAutoformat)
 
   -- Autoformat when saving
   -- Add to disable formatting for tsserver: and client.name ~= "tsserver"
-  if (forceAutoformat or client.supports_method("textDocument/formatting")) then
+  if (forceAutoformat or client:supports_method("textDocument/formatting")) then
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       callback = function()
