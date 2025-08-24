@@ -53,13 +53,9 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
+-- Keep lines above/below cursor
+vim.opt.scrolloff = 10
+-- Keep lines left/right of cursor
+vim.opt.sidescrolloff = 8
+-- Use ripgrep if available
+vim.opt.grepprg = "rg --vimgrep"

@@ -74,7 +74,7 @@ return {
         { desc = "[d]ap breakpoint condition" })
       vim.keymap.set("n", '<leader>dl', dap.run_last, { desc = "[d]ap run [l]ast" })
       vim.keymap.set("n", "<leader>dr", dap.run_to_cursor, { desc = "[d]ap [r]un to cursor" })
-      vim.keymap.set("n", "<leader>dt", dapgo.debug_test, { desc = "[d]ebug go [t]est" })
+      vim.keymap.set("n", "<leader>dgt", dapgo.debug_test, { desc = "[d]ebug [g]o [t]est" })
 
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()

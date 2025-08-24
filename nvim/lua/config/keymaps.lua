@@ -95,6 +95,9 @@ vim.keymap.set('n', '<leader>to', ':e ~/tmp/.todo<CR>', { desc = "Open todos" })
 -- Use '<leader>e' to open the file explorer in the current directory
 vim.keymap.set("n", "<leader>e", ':Oil<CR>', { desc = 'Open explorer' })
 
+-- Show the lsp hover window with rounded borders
+vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded", }) end)
+
 -- Substitute the word under the cursor
 vim.keymap.set("n", "<leader>rw", ':%s/<C-r><C-w>//gc<Left><Left><Left>', { desc = '[R]eplace [W]ord' })
 
@@ -127,8 +130,8 @@ vim.api.nvim_set_keymap(
 function SurroundCSSWithComment()
     local bufnr = vim.api.nvim_get_current_buf()
 
-    local start_row, _ = unpack(vim.api.nvim_buf_get_mark(bufnr, "<"))
-    local end_row, _ = unpack(vim.api.nvim_buf_get_mark(bufnr, ">"))
+    local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(bufnr, "<"))
+    local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(bufnr, ">"))
 
     start_row = start_row - 1
     end_row = end_row
