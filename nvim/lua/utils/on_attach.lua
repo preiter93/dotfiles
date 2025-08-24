@@ -31,9 +31,6 @@ function M.on_attach(client, bufnr, forceAutoformat)
   -- Go to implementation
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 
-  -- Go to type definition
-  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-
   -- Show documentation for the element under the cursor
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 

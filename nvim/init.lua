@@ -1,11 +1,5 @@
--- Load options from options.lua
-require('options')
-
--- Load mappings from mappings.lua
-require('mappings')
-
--- Load the nvim plugin manager
-require('lazy_config')
-
--- Enable telescope fzf native, if installed
+require('config.options')
+require('config.autocmds')
+require('config.keymaps')
+require('config.lazy')
 pcall(require('telescope').load_extension, 'fzf')
