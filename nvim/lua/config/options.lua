@@ -54,7 +54,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
 -- Keep lines above/below cursor
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 4
 -- Keep lines left/right of cursor
 vim.opt.sidescrolloff = 8
 -- Use ripgrep if available

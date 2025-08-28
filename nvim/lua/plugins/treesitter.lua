@@ -35,6 +35,9 @@ return {
           "javascript",
           "yaml",
           "vimdoc",
+          "markdown",
+          "dockerfile",
+          "json",
         },
         incremental_selection = {
           enable = true,

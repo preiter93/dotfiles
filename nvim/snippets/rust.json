@@ -14,5 +14,48 @@
         "    }",
         "}"
       ]
+    },
+    "rust-test-case": {
+      "prefix": "tc",
+      "description": "Rust test case",
+      "body": [
+        "struct ${1:TestName}TestCase {",
+        "    given_req: ${1:TestName}Req,",
+        "    want_resp: Result<${1:TestName}Resp, Code>,",
+        "}",
+        "",
+        "impl Default for ${1:TestName}TestCase {",
+        "    fn default() -> Self {",
+        "        Self {",
+        "            given_req: ${1:TestName}Req{},",
+        "            want_resp: Ok(${1:TestNameResp{}}),",
+        "        }",
+        "    }",
+        "}",
+        "",
+        "impl ${1:TestName}TestCase {",
+        "    async fn run(self) {",
+        "        // given_req",
+        "        let service = Handler {};",
+        "",
+        "        // when",
+        "        let req = Request::new(self.given_req)",
+        "        let got = service.${2:test_case}(req).await;",
+        "",
+        "        // then",
+        "        assert_response(got, self.want_resp);",
+        "    }",
+        "}",
+        "",
+        "#[tokio::test]",
+        "async fn test_${2:test_case}_happy_path() {",
+        "    ${1:TestName}TestCase {",
+        "        ..Default::default()",
+        "    }",
+        "    .run()",
+        "    .await;",
+        "}"
+      ]
     }
 }
+
