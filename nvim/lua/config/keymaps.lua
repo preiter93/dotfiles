@@ -115,6 +115,10 @@ function ReplaceWordInSelection()
     if word_to_replace == "" then
         return
     end
+    -- local word_to_replace = vim.fn.expand("<cword>")
+    -- if word_to_replace == "" then
+    --     return
+    -- end
 
     local cmd = "'<,'>s/" .. word_to_replace .. "//g"
     local move_left = vim.api.nvim_replace_termcodes("<Left><Left>", true, true, true)
@@ -124,34 +128,28 @@ end
 -- Surround visual selection with /* */.
 vim.api.nvim_set_keymap(
     "v",
-    "gs",
+    "gcs",
     ":lua SurroundCSSWithComment()<CR>",
     { noremap = true, silent = true, desc = "Surround css style with comment" }
 )
 
 function SurroundCSSWithComment()
     local bufnr = vim.api.nvim_get_current_buf()
+    local start_mark = vim.api.nvim_buf_get_mark(bufnr, "<")
+    local end_mark = vim.api.nvim_buf_get_mark(bufnr, ">")
 
-    local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(bufnr, "<"))
-    local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(bufnr, ">"))
+    local start_row = start_mark[1]
+    local end_row = end_mark[1]
 
-    start_row = start_row - 1
-    end_row = end_row
-
-    for i = start_row, end_row - 1 do
-        local line = vim.api.nvim_buf_get_lines(bufnr, i, i + 1, false)[1]
-        if line then
-            -- Check if the line is already surrounded with /* and */
-            if line:match("^%s*/%*.*%*/%s*$") then
-                -- Remove the surrounding /* and */
-                line = line:gsub("^%s*/%*%s*", ""):gsub("%s*%*/%s*$", "")
-            else
-                -- Surround line with /* and */
-                line = "/* " .. line .. " */"
-            end
-            vim.api.nvim_buf_set_lines(bufnr, i, i + 1, false, { line })
-        end
+    if start_row == 0 or end_row == 0 then
+        print("No visual selection found.")
+        return
     end
+
+    -- Insert /* before start_row (Lua index is 0-based)
+    vim.api.nvim_buf_set_lines(bufnr, start_row - 1, start_row - 1, false, { "/*" })
+    -- Insert */ after end_row (account for the line we just inserted)
+    vim.api.nvim_buf_set_lines(bufnr, end_row + 1, end_row + 1, false, { "*/" })
 end
 
 -- Accenting of vowels interferes with jump to marks
