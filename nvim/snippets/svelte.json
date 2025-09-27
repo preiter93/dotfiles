@@ -150,22 +150,22 @@
     "svelte-props": {
         "prefix": "props",
         "body": [
-	        "interface Props {",
-	        "	${1:variable}?: string;",
-	        "}",
-            "let { ${1:variable} = '' }: Props = $$props();"
+            "interface Props {",
+            "    ${1:variable}?: string;",
+            "}",
+            "let { ${1:variable} = '' }: Props = \\$props();"
         ],
         "description": "props"
     },
     "svelte-class": {
         "prefix": "class",
         "body": [
-	        "class ${1:MyClass} {",
-	        "	constructor(${2:value}: string) {",
-	        "		this.${2:value} = ${2:value};",
-	        "	}",
-	        "	${2:value}: string;",
-	        "}",
+            "class ${1:MyClass} {",
+            "    constructor(${2:propName}: string) {",
+            "        this.${2:propName} = ${2:propName};",
+            "    }",
+            "    ${2:propName}: string;",
+            "}"
         ],
         "description": "class"
     },
