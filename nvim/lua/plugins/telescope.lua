@@ -1,6 +1,8 @@
 return {
 
     'nvim-telescope/telescope.nvim',
+    -- see https://github.com/nvim-telescope/telescope.nvim/issues/3469
+    commit = 'b4da76be54691e854d3e0e02c36b0245f945c2c7',
     version = '*',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
