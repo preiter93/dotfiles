@@ -44,9 +44,6 @@ return {
       }
     })
 
-    -- mason_lspconfig.setup({})
-
-    -- on attach
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
       callback = function(event)
