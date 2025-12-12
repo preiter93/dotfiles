@@ -17,6 +17,9 @@ return {
             vim.keymap.set("n", "<leader>gsb", ":Gitsigns stage_buffer<CR>", { desc = '[g]it [s]tage [b]uffer' })
             vim.keymap.set("n", "<leader>grh", ":Gitsigns reset_hunk<CR>", { desc = '[g]it [r]eset [h]unk' })
             vim.keymap.set("n", "<leader>grb", ":Gitsigns reset_buffer<CR>", { desc = '[g]it [r]reset [b]uffer' })
+            vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!<CR>", { desc = '[g]it [d]iff view' })
+            vim.keymap.set("n", "gdh", ":diffget //2<CR>", { desc = '[g]it [d]iff apply left' })
+            vim.keymap.set("n", "gdl", ":diffget //3<CR>", { desc = '[g]it [d]iff apply right' })
         end
     }
 }
