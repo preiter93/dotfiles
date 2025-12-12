@@ -1,0 +1,114 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "g s": "outline::Toggle",
+      "g d": "editor::GoToDefinition",
+      "g i": "editor::GoToImplementation",
+      "g r": "editor::FindAllReferences",
+      "K": "editor::Hover",
+      "g c": ["editor::ToggleComments", { "advance_downwards": false }]
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "g l": "vim::SelectNext",
+      "g L": "vim::SelectPrevious",
+      "g a": "editor::SelectAllMatches",
+      "g f": "project_symbols::Toggle",
+      "*": "editor::SelectNext",
+      "#": "editor::SelectPrevious",
+      "space s d": "diagnostics::Deploy",
+      "space r n": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // Git hunks and staging
+      "space g h t": "editor::ToggleSelectedDiffHunks",
+      "space g h r": "git::Restore",
+      "space g b r": "git::RestoreFile",
+      "space g h s": "git::StageAndNext",
+      "space g b s": "git::StageFile",
+      "space g h u": "git::UnstageAndNext",
+      "space g b u": "git::UnstageFile"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // Leader key patterns (space as leader)
+      "space e": "file_finder::Toggle",
+      "space f": "file_finder::Toggle",
+      "space /": "pane::DeploySearch",
+      "space ?": "project_search::ToggleFocus",
+      "space t": "terminal_panel::ToggleFocus",
+      "space o": "outline::Toggle",
+
+      // Quick buffer switching
+      "g t": "pane::ActivateNextItem",
+      "g T": "pane::ActivatePreviousItem",
+
+      // Buffer/Window management (vim-like)
+      "ctrl-w v": "pane::SplitRight",
+      "ctrl-w s": "pane::SplitDown",
+      "ctrl-w q": "pane::CloseActiveItem",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+
+      // Quick actions
+      "space n": "workspace::ToggleLeftDock",
+      "space m": "workspace::ToggleRightDock",
+      "space j": "workspace::ToggleBottomDock",
+
+      // Error navigation
+      "[ d": "editor::GoToDiagnostic",
+      "] d": "editor::GoToPreviousDiagnostic",
+
+      // Git navigation
+      "[ g": "editor::GoToHunk",
+      "] g": "editor::GoToPreviousHunk"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore",
+      "j j": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      "g c": "editor::ToggleComments",
+      "space c a": "editor::ToggleCodeActions",
+      "space r n": "editor::Rename"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Terminal",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-k": "workspace::ActivatePaneUp"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-p": "command_palette::Toggle",
+      "ctrl-shift-p": "command_palette::Toggle"
+    }
+  }
+]
