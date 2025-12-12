@@ -38,6 +38,7 @@ return {
           "markdown",
           "dockerfile",
           "json",
+          "just",
         },
         incremental_selection = {
           enable = true,
