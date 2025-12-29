@@ -15,5 +15,5 @@ size = 18
 
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/tokyo_night_enhanced.toml"
+    "~/.config/alacritty/themes/monokai_charcoal.toml"
 ]
