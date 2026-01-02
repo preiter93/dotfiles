@@ -19,6 +19,8 @@
       "g f": "project_symbols::Toggle",
       "*": "editor::SelectNext",
       "#": "editor::SelectPrevious",
+      "space s g": "pane::DeploySearch",
+      "space s f": "file_finder::Toggle",
       "space s d": "diagnostics::Deploy",
       "space r n": "editor::Rename",
       "space c a": "editor::ToggleCodeActions"
