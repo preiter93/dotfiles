@@ -4,6 +4,8 @@ if [ "$TMUX" = "" ]; then tmux; fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export EDITOR="nvim"
+
 # Oh-my-zsh
 ZSH_THEME="custom"
 zstyle ':omz:plugins:nvm' lazy yes
