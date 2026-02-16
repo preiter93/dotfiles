@@ -9,6 +9,7 @@ export EDITOR="nvim"
 # Oh-my-zsh
 ZSH_THEME="custom"
 zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 plugins=(zsh-autosuggestions zsh-syntax-highlighting web-search)
 source $ZSH/oh-my-zsh.sh
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -42,6 +43,15 @@ alias nd='cd $HOME/dotfiles/nvim'
 
 # rg
 alias rgf='rg --files | rg'
+
+# # ls
+# alias ls='eza'
+# alias l='eza -lbF --git'
+# alias ll='eza -lbF --git'
+# alias lt='eza --tree --level=2'
+# alias llm='eza -lbGd --git --sort=modified'
+# alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'
+# alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale'
 
 # wireman config
 export WIREMAN_CONFIG_DIR="$HOME/.config/wireman"
@@ -112,3 +122,5 @@ alias wi='watson status'
 # sdl2
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
 export C_INCLUDE_PATH="/opt/homebrew/include"
+
+source <(COMPLETE=zsh pacs)

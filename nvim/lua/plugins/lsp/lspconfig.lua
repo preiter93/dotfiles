@@ -43,6 +43,12 @@ return {
         env = { GOFLAGS = "-tags=smoketest" },
       }
     })
+    vim.lsp.config("ts_ls", {
+      on_attach = function(client, _)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
