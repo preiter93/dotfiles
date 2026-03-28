@@ -17,6 +17,9 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # Enable vi mode
 set -o vi
 
+# Nix
+export PATH="/nix/var/nix/profiles/default/bin:$PATH"
+
 # History settings
 HISTFILE=$HOME/.zshistory
 SAVEHIST=100000
