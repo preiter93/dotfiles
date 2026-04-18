@@ -167,3 +167,22 @@ vim.keymap.set('n', 'ù', '`u', { silent = true })
 
 -- Copy the path of the currently open file
 vim.keymap.set("n", "<leader>cf", ':let @+ = @%<CR>', { noremap = true, silent = true, desc = "[c]opy [f]ile path" })
+
+-- Convert visually selected snake_case word to camelCase
+vim.api.nvim_set_keymap('v', '<leader>sc', ':lua SnakeToCamel()<CR>',
+    { noremap = true, silent = true, desc = "[S]nake to [C]amel case" })
+
+function SnakeToCamel()
+    local start_pos = vim.fn.getpos("'<")
+    local end_pos = vim.fn.getpos("'>")
+
+    local lines = vim.api.nvim_buf_get_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2] - 1, end_pos[3], {})
+    local text = table.concat(lines, "\n")
+
+    -- Convert snake_case to camelCase: uppercase the letter after each underscore
+    local result = text:gsub("_(%a)", function(c)
+        return c:upper()
+    end)
+
+    vim.api.nvim_buf_set_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2] - 1, end_pos[3], { result })
+end
