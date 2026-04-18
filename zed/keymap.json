@@ -30,13 +30,14 @@
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       // Git hunks and staging
-      "space g h t": "editor::ToggleSelectedDiffHunks",
-      "space g h r": "git::Restore",
-      "space g b r": "git::RestoreFile",
-      "space g h s": "git::StageAndNext",
-      "space g b s": "git::StageFile",
-      "space g h u": "git::UnstageAndNext",
-      "space g b u": "git::UnstageFile"
+      "space g p": "editor::ToggleSelectedDiffHunks",
+      "space g l": "editor::ToggleGitBlame",
+      "space g n": "editor::GoToHunk",
+      "space g shift-n": "editor::GoToPreviousHunk",
+      "space g s h": "git::StageAndNext",
+      "space g s b": "git::StageFile",
+      "space g r h": "git::Restore",
+      "space g r b": "git::RestoreFile"
     }
   },
   {
@@ -90,7 +91,8 @@
     "bindings": {
       "g c": "editor::ToggleComments",
       "space c a": "editor::ToggleCodeActions",
-      "space r n": "editor::Rename"
+      "space r n": "editor::Rename",
+      "y s": "vim::PushAddSurrounds"
     }
   },
   {
