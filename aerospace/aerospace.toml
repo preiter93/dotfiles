@@ -124,7 +124,7 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-a = 'workspace A'
 alt-b = 'workspace B'
-alt-o = 'workspace O'
+alt-n = 'workspace N'
 alt-t = 'workspace T'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -133,7 +133,7 @@ alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-b = 'move-node-to-workspace B'
-alt-shift-o = 'move-node-to-workspace O'
+alt-shift-n = 'move-node-to-workspace N'
 alt-shift-t = 'move-node-to-workspace T'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -176,11 +176,15 @@ run = "move-node-to-workspace 1"
 if.app-id = "com.google.Chrome.app.mdpkiolbdkhdjpekfbkbmhigcaggjagi"
 run = "move-node-to-workspace 1"
 
+[[on-window-detected]]
+if.app-id = "md.obsidian"
+run = "move-node-to-workspace N"
+
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'
 3 = 'main'
-A = 'main'
-O = 'main'
+A = ['secondary', 'main']
+N = ['secondary', 'main']
 B = ['secondary', 'main']
 T = ['secondary', 'main']
