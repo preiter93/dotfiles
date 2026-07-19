@@ -5,9 +5,9 @@ return {
     local MiniSurround = require('mini.surround')
     MiniSurround.setup({
       mappings = {
-        add = "ys",
-        delete = "ds",
-        replace = "cs",
+        add = "gsa",
+        delete = "gsd",
+        replace = "gsr",
       },
     })
   end

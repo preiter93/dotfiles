@@ -180,11 +180,15 @@ run = "move-node-to-workspace 1"
 if.app-id = "md.obsidian"
 run = "move-node-to-workspace N"
 
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'
 3 = 'main'
-A = ['secondary', 'main']
+A = 'main'
 N = ['secondary', 'main']
 B = ['secondary', 'main']
 T = ['secondary', 'main']

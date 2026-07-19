@@ -169,8 +169,8 @@ vim.keymap.set('n', 'ù', '`u', { silent = true })
 vim.keymap.set("n", "<leader>cf", ':let @+ = @%<CR>', { noremap = true, silent = true, desc = "[c]opy [f]ile path" })
 
 -- Convert visually selected snake_case word to camelCase
-vim.api.nvim_set_keymap('v', '<leader>sc', ':lua SnakeToCamel()<CR>',
-    { noremap = true, silent = true, desc = "[S]nake to [C]amel case" })
+-- vim.api.nvim_set_keymap('v', '<leader>sc', ':lua SnakeToCamel()<CR>',
+--     { noremap = true, silent = true, desc = "[S]nake to [C]amel case" })
 
 function SnakeToCamel()
     local start_pos = vim.fn.getpos("'<")
@@ -186,3 +186,10 @@ function SnakeToCamel()
 
     vim.api.nvim_buf_set_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2] - 1, end_pos[3], { result })
 end
+
+vim.keymap.set("n", "<leader>cr",
+    function()
+        vim.cmd(
+            "!cargo run -- --interactive --import-path . --proto examples/protos/greeter.proto localhost:50051 proto.Greeter/SayHello")
+    end,
+    { desc = "Run cargo run", })

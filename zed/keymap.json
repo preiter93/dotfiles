@@ -31,7 +31,7 @@
     "bindings": {
       // Git hunks and staging
       "space g p": "editor::ToggleSelectedDiffHunks",
-      "space g l": "editor::ToggleGitBlame",
+      "space g l": "git::Blame",
       "space g n": "editor::GoToHunk",
       "space g shift-n": "editor::GoToPreviousHunk",
       "space g s h": "git::StageAndNext",
@@ -93,6 +93,13 @@
       "space c a": "editor::ToggleCodeActions",
       "space r n": "editor::Rename",
       "y s": "vim::PushAddSurrounds"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "enter": "editor::SelectLargerSyntaxNode",
+      "backspace": "editor::SelectSmallerSyntaxNode"
     }
   },
   {

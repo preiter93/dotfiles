@@ -21,10 +21,13 @@ set -o vi
 export PATH="/nix/var/nix/profiles/default/bin:$PATH"
 
 # History settings
-HISTFILE=$HOME/.zshistory
+HISTFILE=$HOME/.zsh_history
 SAVEHIST=100000
 HISTSIZE=99999
-setopt share_history
+# setopt share_history
+unsetopt share_history
+setopt inc_append_history
+
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
