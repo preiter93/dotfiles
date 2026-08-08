@@ -2,7 +2,6 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "g s": "outline::Toggle",
       "g d": "editor::GoToDefinition",
       "g i": "editor::GoToImplementation",
       "g r": "editor::FindAllReferences",
@@ -23,7 +22,9 @@
       "space s f": "file_finder::Toggle",
       "space s d": "diagnostics::Deploy",
       "space r n": "editor::Rename",
-      "space c a": "editor::ToggleCodeActions"
+      "space c a": "editor::ToggleCodeActions",
+      "space e": "workspace::ToggleLeftDock",
+      "space p": "outline::Toggle"
     }
   },
   {
@@ -43,8 +44,12 @@
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
+      // Surround bindings
+      "g s a": "vim::PushAddSurrounds",
+      "g s d": "vim::PushDeleteSurrounds",
+      "g s r": "vim::PushChangeSurrounds",
+
       // Leader key patterns (space as leader)
-      "space e": "file_finder::Toggle",
       "space f": "file_finder::Toggle",
       "space /": "pane::DeploySearch",
       "space ?": "project_search::ToggleFocus",
@@ -92,11 +97,15 @@
       "g c": "editor::ToggleComments",
       "space c a": "editor::ToggleCodeActions",
       "space r n": "editor::Rename",
-      "y s": "vim::PushAddSurrounds"
+      // Surround bindings
+      "g s a": "vim::PushAddSurrounds",
+      // Move line bindings
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
     }
   },
   {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "context": "Editor && !AgentPane && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "enter": "editor::SelectLargerSyntaxNode",
       "backspace": "editor::SelectSmallerSyntaxNode"
