@@ -24,9 +24,7 @@ export PATH="/nix/var/nix/profiles/default/bin:$PATH"
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=100000
 HISTSIZE=99999
-# setopt share_history
-unsetopt share_history
-setopt inc_append_history
+setopt share_history
 
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
