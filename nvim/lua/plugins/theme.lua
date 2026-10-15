@@ -1,5 +1,5 @@
 -- local theme = require('utils').theme
-Theme = "tokyonight" -- tokyonight | onedark | catppuccin | kanagawa
+Theme = "github_dark" -- tokyonight | onedark | catppuccin | kanagawa | github_dark
 
 return {
   Theme == "onedark" and {
@@ -61,5 +61,14 @@ return {
     end
   } or {},
 
-
+  Theme == "github_dark" and {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("github-theme").setup({})
+      vim.cmd.colorscheme 'github_dark_default'
+    end,
+  } or {},
 }
