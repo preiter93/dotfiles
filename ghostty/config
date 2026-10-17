@@ -1,0 +1,41 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 16
+
+background-opacity = 0.96
+
+cursor-style = block
+
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+
+app-notifications = no-clipboard-copy
+
+palette = 0=#06172B
+palette = 1=#C56B52
+palette = 2=#83B8C9
+palette = 3=#E9B66F
+palette = 4=#2476C8
+palette = 5=#8A83C9
+palette = 6=#54C8E8
+palette = 7=#D7E4EF
+
+palette = 8=#354C67
+palette = 9=#F08A73
+palette = 10=#A6D8E3
+palette = 11=#FFD28A
+palette = 12=#52A5F5
+palette = 13=#B2A5F0
+palette = 14=#8CE7F5
+palette = 15=#FFF4DF
+
+background = #041020
+foreground = #D7E4EF
+
+cursor-color = #FFD28A
+
+selection-background = #2476C8
+selection-foreground = #FFF4DF
