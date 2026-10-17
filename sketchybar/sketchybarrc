@@ -11,7 +11,7 @@ sketchybar --bar position=top   \
                  sticky=on      \
                  height=40      \
                  blur_radius=0  \
-                 color=0xff012839
+                 color=0xff003056
 
 # Changing Defaults
 default=(
@@ -19,7 +19,7 @@ default=(
   padding_right=5
   icon.font="JetBrainsMono Nerd Font:Regular:15.0"
   label.font="JetBrainsMono Nerd Font:Regular:13.0"
-  icon.color=0xffda8655
+  icon.color=0xfffd9b58
   label.color=0xffcdd6f4
   icon.padding_left=8
   icon.padding_right=8
