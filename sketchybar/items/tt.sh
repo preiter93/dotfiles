@@ -8,4 +8,5 @@ sketchybar --add event tt_update \
                     popup.background.corner_radius=8 \
                     popup.background.border_width=1 \
                     popup.background.border_color=0xff45475a \
+                    icon.font="JetBrainsMono Nerd Font:Regular:15.0" \
            --subscribe tt mouse.clicked mouse.exited.global system_will_sleep tt_update
