@@ -10,9 +10,9 @@ CLOSE="sketchybar --set $NAME popup.drawing=off --trigger tt_update"
 
 STATUS="$("$TT" status)"
 if [ "$STATUS" = "idle" ]; then
-  sketchybar --set "$NAME" label="idle" icon.color=0x80ffffff
+  sketchybar --set "$NAME" label="idle"
 else
-  sketchybar --set "$NAME" label="$STATUS" icon.color=0xffa6e3a1
+  sketchybar --set "$NAME" label="$STATUS"
 fi
 
 case "$SENDER" in
@@ -22,7 +22,7 @@ case "$SENDER" in
     if [ "$STATUS" != "idle" ]; then
       CURRENT="${STATUS% *}"
       sketchybar --add item tt.p.stop popup."$NAME" \
-                 --set tt.p.stop icon="■" icon.color=0xfff38ba8 label="Stop" \
+                 --set tt.p.stop icon="■" icon.color=0xffac3976 label="Stop" \
                        icon.padding_left=10 label.padding_right=10 \
                        click_script="$(quote "$TT") stop >/dev/null; $CLOSE"
     fi

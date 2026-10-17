@@ -1,6 +1,6 @@
 sketchybar --add event tt_update \
            --add item tt right \
-           --set tt icon="⏱" \
+           --set tt icon="" \
                     update_freq=30 \
                     script="$PLUGIN_DIR/tt.sh" \
                     popup.align=right \
